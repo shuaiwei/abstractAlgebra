@@ -1,0 +1,188 @@
+\documentclass{amsart}
+
+% PACKAGES
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%\theoremstyle{definition}
+%\newtheorem{exer}{Exercise}
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{conj}[lem]{Conjecture}
+\newtheorem{intthm}{Theorem}
+\renewcommand{\theintthm}{\Alph{intthm}}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{ex}[lem]{Example}
+\newtheorem{question}[lem]{Question}
+\newtheorem{questions}[lem]{Questions}
+\newtheorem{problem}[lem]{Problem}
+\newtheorem{disc}[lem]{Remark}
+\newtheorem{rmk}[lem]{Remark}
+\newtheorem{construction}[lem]{Construction}
+\newtheorem{notn}[lem]{Notation}
+\newtheorem{fact}[lem]{Fact}
+\newtheorem{para}[lem]{}
+\newtheorem{exer}[lem]{Exercise}
+\newtheorem{remarkdefinition}[lem]{Remark/Definition}
+\newtheorem{notation}[lem]{Notation}
+\newtheorem{step}{Step}
+\newtheorem{convention}[lem]{Convention}
+\newtheorem*{Convention}{Convention}
+\newtheorem{assumption}[lem]{Assumption}
+
+\newcommand{\fmn}{F^{m\times n}}
+\newcommand{\fnn}{F^{n\times n}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\Span}{\operatorname{Span}}	
+\newcommand{\rank}{\operatorname{rank}}	
+\begin{document}
+
+\noindent MATH 8510, Abstract Algebra I \\
+Fall 2016\\
+Exercises 2-2\\
+Shuai Wei
+\
+
+%\noindent
+%Throughout this homework set, let $F$ be a field
+%
+%
+%\
+
+\begin{exer}[1.6.20]
+Let $G$ be a group, and let $\operatorname{Aut}(G)$ be the set of all isomorphisms $G\xra\cong G$.
+Prove that $\operatorname{Aut}(G)$ is a group under function composition.
+(The elements of $\operatorname{Aut}(G)$ are \emph{automorphism} of $G$, and $\operatorname{Aut}(G)$ is 
+the \emph{automorphism group of $G$}.)
+\begin{proof}
+	$\forall g,h,k \in \operatorname{Aut}(G)$,
+	\begin{enumerate}
+			\item 
+				$g: G \xra\cong G, h: G \xra\cong G$, then $gh: G \xra\cong G$ since $\cong$ is an equivalent relation.\\
+				So $g\circ h \in \operatorname{Aut}(G)$.
+			\item 
+				Define $e: G \xra\cong G$ by $e(x) := x$. \\ 
+				Then $e \in \operatorname{Aut}(G)$.\\
+				Define $h: G \xra\cong G$ by $h(x) = y_x$.\\ 
+				$\forall x \in G,$ we have $h\circ e(x) = hx$, so $h\circ e = e$.\\
+				and $e\circ h(x) = e(y_x) = y_x = h(x)$, so $e\circ h = h$.\\
+				Thus $\exists \; e \in \operatorname{Aut}(G)$ such that $e\circ h = e = h\circ e$.
+			\item
+				$\forall x \in G$, \\
+				$g\circ (h\circ k)(x) = g\circ h\circ k(x) = (g\circ h)\circ k(x)$ by the definition of function composition.\\
+				So $g\circ (h\circ k) = (g\circ h)\circ k$.
+			\item
+				$\forall x \in G, h(x)= y_x$ using the definition of $h$ from $(2)$.\\
+				Define $h^{-1}: G \xra\cong G$ by $h^{-1}(y_x) := x$. \\
+				Then $h^{-1} \in \operatorname{Aut}(G)$.\\
+				So $h^{-1}\circ h(x) = h^{-1}(y_x) = x = e(x)$, so $h^{-1}\circ h = e$\\
+				and $h\circ h^{-1}(y_x) = h(x) = y_x = e(y_x)$, so $h\circ h^{-1} = e$.\\
+				Thus, $\exists\; h^{-1} \in \operatorname{Aut}(G)$ such that $h\circ h^{-1} = e = h^{-1}\circ h$.
+
+	\end{enumerate}
+\end{proof}
+
+
+\end{exer}
+
+\begin{exer}[1.7.16]
+Let $G$ be a group. 
+\begin{enumerate}[(a)]
+\item
+Prove that the formula $g\cdot x:=gxg^{-1}$ defines a group action of $G$ on itself. 
+(This action is called the \emph{conjugation}. You may wish to compare it to similarity from linear algebra.)
+\begin{proof}
+	$\forall h, g, a, \in G, x \in G$,\\
+	let $e_{G} \in G$ be the identity and then $e_{G}g = e_{G} = ge_{G}$.\\
+	Then
+	\begin{enumerate}
+		\item
+			$e_G\cdot a = e_{G}^{-1}ae_{G} = e_Gae_G= a$. 
+		\item 
+			$h\cdot (g\cdot a) =h\cdot (gag^{-1}) = h(gag^{-1})h^{-1} = hgag^{-1}h^{-1};$\\
+			$(hg)\cdot a = hga(hg)^{-1} = hgag^{-1}h^{-1}.$\\
+			So $h\cdot(g\cdot a) = (hg)\cdot a$.
+	\end{enumerate}
+\end{proof}
+
+
+\item
+For each $g\in G$, define $\sigma_g\colon G\to G$ by the formula $\sigma_g(x):=gxg^{-1}$. 
+Prove that the rule $g\mapsto\sigma_g$ defines a group homomorphism $G\to\operatorname{Aut}(G)$.
+(An automorphism of the form $\sigma_g$ using the conjugation action is called an \emph{inner} automorphism.)
+\begin{proof}
+	$\forall g,h,a\in G$, \\
+	let $f$ be defined as $f: G\to\operatorname{Aut}(G)$ with the rule $g\mapsto\sigma_g$.\\
+	Then $f(g) = \sigma_g$ and \\
+	$f(gh) = \sigma_{gh}$ since $gh \in G$\\
+	$f(gh)(a) = \sigma_{gh}(a) = (gh)a(gh)^{-1} = ghag^{-1}h^{-1}$.\\
+	$f(g)\circ f(h)(a) = \sigma_{g}\circ \sigma_{h}(a) = \sigma_{g}(hah^{-1}) = g(hah^{-1})g^{-1} = ghah^{-1}g^{-1}$.\\
+	So $\forall a\in G$, we have $f(gh)(a) = f(g)\circ f(h)(a)$.\\
+	Thus, $f(gh) = f(g)\circ f(h)$.\\
+	As a result, $f$ defines a group homomorphism.
+
+
+
+\end{proof}
+\end{enumerate}
+\end{exer}
+
+\begin{exer}
+In your free time, read the statements of the following exercises.
+\begin{enumerate}[1.2:]
+\item[1.1:] 19, 20, 22--25, 31--36
+\item[1.6:] 1--6, 8, 10--12, 17--23
+\item[1.7:] 1--3, 8--10, 14--18
+\end{enumerate}
+\end{exer}
+
+
+\end{document}
+
+
+\begin{exer}
+\begin{enumerate}[(a)]
+\item 
+\end{enumerate}
+\end{exer}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

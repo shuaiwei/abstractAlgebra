@@ -1,0 +1,162 @@
+\documentclass{amsart}
+
+% PACKAGES
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%\theoremstyle{definition}
+%\newtheorem{exer}{Exercise}
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{conj}[lem]{Conjecture}
+\newtheorem{intthm}{Theorem}
+\renewcommand{\theintthm}{\Alph{intthm}}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{ex}[lem]{Example}
+\newtheorem{question}[lem]{Question}
+\newtheorem{questions}[lem]{Questions}
+\newtheorem{problem}[lem]{Problem}
+\newtheorem{disc}[lem]{Remark}
+\newtheorem{rmk}[lem]{Remark}
+\newtheorem{construction}[lem]{Construction}
+\newtheorem{notn}[lem]{Notation}
+\newtheorem{fact}[lem]{Fact}
+\newtheorem{para}[lem]{}
+\newtheorem{exer}[lem]{Exercise}
+\newtheorem{remarkdefinition}[lem]{Remark/Definition}
+\newtheorem{notation}[lem]{Notation}
+\newtheorem{step}{Step}
+\newtheorem{convention}[lem]{Convention}
+\newtheorem*{Convention}{Convention}
+\newtheorem{assumption}[lem]{Assumption}
+
+\newcommand{\fmn}{F^{m\times n}}
+\newcommand{\fnn}{F^{n\times n}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\Span}{\operatorname{Span}}	
+\newcommand{\rank}{\operatorname{rank}}	
+\begin{document}
+
+\noindent MATH 8510, Abstract Algebra I \\
+Fall 2016\\
+Exercises 2-1\\
+Shuai Wei
+
+\
+
+%\noindent
+%Throughout this homework set, let $F$ be a field
+%
+%
+%\
+
+\begin{exer}
+Let $n\in\bbn$, and
+consider the complex number 
+$$e^{2\pi i/n}=\cos(2\pi/n)+\sin(2\pi/n)i\neq 0$$
+as an element of the 
+multiplicative abelian group $\bbc^\times$.
+Compute the order $|e^{2\pi i/n}|$. \\
+$$e=e^{2k\pi i/n} = 1_{\bbr} + 0_{\bbr}i \in \bbc^\times.$$
+where $k \in {\bbz}$.
+$$\forall n \in \bbn, \; e^{2\pi i/n} e = e^{2\pi i/n}(1_{\bbr} + 0_{\bbr}i) = e^{2\pi i/n}1_{\bbr} = e^{2\pi i/n}.$$
+\begin{enumerate}
+\item
+	If $n=1, e^{2\pi i/n} = e^{2\pi i} = 1_{\bbr} + 0_{\bbr}i = e$, so $|e^{2\pi i/n}|= n=1$. \\
+	So the order $ |e^{2\pi i/n}|$ is 1.
+\item
+	If $n > 1$, \\
+		$$(e^{2\pi i/n})^1 = \cos(2\pi/n)+\sin(2\pi/n)i \neq 1_{\bbr} + 0_{\bbr}i;$$
+		For $1<m<n$,
+		$$(e^{2\pi i/n})^m = \cos(2m\pi/n)+\sin(2m\pi/n)i \neq 1_{\bbr} + 0_{\bbr}i;$$
+		since $m/n \not\in \bbz$. \\
+		But 
+		$$(e^{2\pi i/n})^n = e^{2\pi i} =  \cos(2\pi)+\sin(2\pi)i = 1_{\bbr} + 0_{\bbr}i = e.$$
+		So the order $ |e^{2\pi i/n}|$ is $n$.
+\end{enumerate}
+In summary, the order $ |e^{2\pi i/n}|$ is $n$. 
+
+\end{exer}
+
+\begin{exer}
+Let $A$ and $B$ be groups. Prove that $A$ and $B$ are both abelian if and only if the cartesian product
+$A\times B$ is abelian.
+\begin{proof}
+	$\forall a1,a2 \in A, b1,b2 \in B$, we have $(a1,b1), (a2,b2) \in A \times B$.\\ Then $(a1,b1), (a2,b2)$ are abitrary two elements from $A \times B.$ \\
+	By definition, $(a1,b1)(a2,b2) = (a1a2,b1b2), (a2,b2)(a1,b1)=(a2a1,b2b1)$.
+	$$A\times B \text{ is abelian group.}$$ 
+	$$\Leftrightarrow (a1,b1)(a2,b2) = (a2,b2)(a1,b1).$$
+	$$\Leftrightarrow (a1a2,b1b2) = (a2a1,b2b1).$$
+	$$\Leftrightarrow a1a2 = a2a1 \text{ and } b1b2 = b2b1.$$
+	$$\Leftrightarrow\text{A and B are both abelian.}$$	
+\end{proof}
+\end{exer}
+
+\begin{exer}
+Let $G$ be a group, and let $x\in G$ be an element with finite order $n$.
+Prove that the elements $1,x,x^2,\ldots,x^{n-1}$ are distinct in $G$.
+Deduce that $|x|\leq|G|$.
+\begin{proof}
+	 $x \neq 0$ since $0^n = 0 \neq 1$ for positive integer $n$, namely, 0 has not finite order.\\
+	 Then we can write $1$ as $x^0$. \\
+	 Assume there exists $0\leq i<j<n$ such that $x^i = x^j$.\\
+	 Let $(x^i)^{-1} = x^{-i}$ be the inverse of $x^i$.\\
+	 Then multiply $x^{-i}$ in two sides of $x^i = x^j$, we have $1=x^{i-i} = x^{j-i}$. \\
+	 Thus $j-i >=n$ since $n$ is the order of $x$. \\
+	 It is a contradiction since $j-i \leq n-1$ by the assumption $0\leq i<j<n$.\\
+	 Therefore, the elements $1,x,x^2,\ldots,x^{n-1}$ are distinct in $G$.\\
+	 As a result, we get $G$ has at least $n$ distinct elements, $|G| \geq n = |x|$, which completes the proof.
+\end{proof}
+
+\end{exer}
+
+
+\end{document}
+
+
+\begin{exer}
+\begin{enumerate}[(a)]
+\item 
+\end{enumerate}
+\end{exer}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

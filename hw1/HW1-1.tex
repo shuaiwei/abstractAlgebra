@@ -1,0 +1,304 @@
+\documentclass{amsart}
+
+
+% PACKAGES
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+\usepackage{linegoal}
+
+%\theoremstyle{definition}
+%\newtheorem{exer}{Exercise}
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+\newcommand{\aaa}{\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)}
+\newcommand{\bbb}{\left(\begin{smallmatrix}e&f\\g&h\end{smallmatrix}\right)}
+\newcommand{\ccc}{\left(\begin{smallmatrix}i&j\\k&l\end{smallmatrix}\right)}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{conj}[lem]{Conjecture}
+\newtheorem{intthm}{Theorem}
+\renewcommand{\theintthm}{\Alph{intthm}}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{ex}[lem]{Example}
+\newtheorem{question}[lem]{Question}
+\newtheorem{questions}[lem]{Questions}
+\newtheorem{problem}[lem]{Problem}
+\newtheorem{disc}[lem]{Remark}
+\newtheorem{rmk}[lem]{Remark}
+\newtheorem{construction}[lem]{Construction}
+\newtheorem{notn}[lem]{Notation}
+\newtheorem{fact}[lem]{Fact}
+\newtheorem{para}[lem]{}
+\newtheorem{exer}[lem]{Exercise}
+\newtheorem{remarkdefinition}[lem]{Remark/Definition}
+\newtheorem{notation}[lem]{Notation}
+\newtheorem{step}{Step}
+\newtheorem{convention}[lem]{Convention}
+\newtheorem*{Convention}{Convention}
+\newtheorem{assumption}[lem]{Assumption}
+
+\newcommand{\fmn}{F^{m\times n}}
+\newcommand{\fnn}{F^{n\times n}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\Span}{\operatorname{Span}}	
+\newcommand{\rank}{\operatorname{rank}}	
+\begin{document}
+
+\noindent MATH 8510, Abstract Algebra I \\
+Fall 2016\\
+Exercises 1\\
+Shuai Wei
+\
+
+%\noindent
+%Throughout this homework set, let $F$ be a field
+%
+%
+%\
+
+\begin{exer}
+Prove that $\bbq(\sqrt 2):=\left\{a+b\sqrt 2\mid a,b\in\bbq\right\}$ is a field under the usual
+addition and multiplication of $\bbr$.
+\end{exer}
+\begin{proof}
+	$\forall a+b\sqrt 2, c+d\sqrt 2, e+f\sqrt 2\in \bbq(\sqrt 2)$,we have $a,b,c,d,e,f \in \bbq$.
+		\begin{enumerate}[(a)]
+			\item 
+				\begin{align*}
+					(a+b\sqrt 2) +( c+ d \sqrt 2) = (a+c) + (b+d)\sqrt 2 \in \bbq(\sqrt 2) 
+				\end{align*}
+				since $a+c, b+d \in \bbq$.
+				\begin{align*}
+					(a+b\sqrt 2)( c+ d \sqrt 2)&=a(c + d \sqrt 2) + b\sqrt 2(c+d\sqrt 2),
+				\end{align*}
+				where we use the distributive law of the field $\bbr$ since $a,b\sqrt 2, c,  d\sqrt 2 \in \bbr$. Besides, $b\sqrt 2 c = bc\sqrt 2$ and  $(b\sqrt 2)(d\sqrt 2) = (bd)(\sqrt 2\sqrt 2) = bd(2) = 2bd$.\\ 
+				Then 
+				\begin{align*}
+					(a+b\sqrt 2)( c+ d \sqrt 2)  &= (ac +ad\sqrt 2) + (bc\sqrt 2 + 2bd) \\ & = (ac+2bd) + (ad+bc)\sqrt 2\in \bbq(\sqrt 2)
+				\end{align*}
+				where we use the multiplication associative,commutative and distribution law of the field $\bbr$. 
+			\item 
+				\begin{align*}
+					(a+b\sqrt 2) +( c+ d \sqrt 2) &= (a+c) + (b+d)\sqrt 2 \\ &= (c+a) + (d+b)\sqrt 2 \\&= (c+d\sqrt 2) + (a+b\sqrt 2).
+				\end{align*}
+				\begin{align*}
+					\Big((a+b\sqrt 2) + ( c+ d \sqrt 2)\Big) + (e+f\sqrt 2) &= \Big((a+c) + (b+d) \sqrt 2\Big) + (e+f \sqrt 2) \\&= (a+c+e)+(b+d+f) \sqrt 2 \\&= \Big(a+(c+e)\Big) + \Big(b+(d+f)\Big)\sqrt 2\\ &= (a+b\sqrt 2) +\Big((c+e)+(d+f)\sqrt 2\Big) \\&= (a +b\sqrt 2) + \Big((c+d\sqrt 2)+(e+f\sqrt 2)\Big).
+				\end{align*}
+				\begin{align*}
+				0_{\bbq(\sqrt 2)} = 0_{\bbq} + 0_{\bbq}\sqrt 2 = 0 + 0\sqrt 2.
+				\end{align*}
+				\begin{align*}
+				(0+0\sqrt 2) + (a+b\sqrt 2) = (0+a) + (0+b)\sqrt 2 = a + b\sqrt 2.
+				\end{align*}
+				\begin{align*}
+				-(a+b\sqrt 2) = (-a)+(-b)\sqrt 2 = -a-b\sqrt 2 \in \bbq(\sqrt 2)
+				\end{align*}
+				since $-a,-b \in \bbq$. Check \\
+				\begin{align*}
+				(a+b\sqrt 2) +(-a-b\sqrt 2 ) = (a-a)+(b-b)\sqrt 2 = 0_{\bbq} + 0_{\bbq} \sqrt 2 = 0_{\bbq(\sqrt 2)} = 0.
+			    \end{align*}
+
+			\item
+				\begin{align*}
+				(a+b\sqrt 2) ( c+ d \sqrt 2) = (ac+2bd) +(ad+bc)\sqrt 2
+			    \end{align*}
+				by previous steps .\\
+				Similarly, we can get 
+				\begin{align*}
+					( c+ d \sqrt 2) (a+b\sqrt 2) &= (ca+2db) +(da+cb)\sqrt 2 \\&= (ac+2bd) + (ad+bc)\sqrt 2 \\&= (a+b\sqrt 2) ( c+ d \sqrt 2).
+				\end{align*}
+				\begin{align*}
+					\Big((a+b\sqrt 2) + ( c+ d \sqrt 2)\Big) + (e+f\sqrt 2) &= \Big((a+c) + (b+d) \sqrt 2\Big) + (e+f \sqrt 2) \\ &= (a+c+e)+(b+d+f) \sqrt 2.
+			   \end{align*}
+				Similarly, we can get 
+				\begin{align*}
+					(a+b\sqrt 2) + \Big(( c+ d \sqrt 2) + (e+f\sqrt 2)\Big) &= (a+c+e) + (b+d+f)\sqrt 2  \\&= (a+c+e) + (b+d+f)\sqrt 2 \\&= \Big((a+b\sqrt 2) + ( c+ d \sqrt 2)\Big) + (e+f\sqrt 2).
+			   \end{align*}
+			   \begin{align*}
+				1_{\bbq(\sqrt 2)} = 1_{\bbq} + 0_{\bbq}\sqrt 2 = 1 + 0\sqrt 2.
+			  \end{align*}
+			  \begin{align*}
+				(1+0\sqrt 2) (a+b\sqrt 2) = (a +b\sqrt 2)+(0a\sqrt2 + 0(2b)) = a + b\sqrt 2
+			\end{align*}
+			where we use the multiplication associative, commutative and distributive law of field $\bbr$.
+				Consider $a+b\sqrt 2 \neq 0$, then $a \neq  -b\sqrt 2$.
+				\begin{enumerate}[(1)]
+					\item If $b=0$, then $a \neq 0$, 
+						\begin{align*}
+							(a+b\sqrt 2)^{-1} = \frac{1}{a}=\frac{1}{a}+0\sqrt 2 \in \bbq(\sqrt 2).
+						\end{align*}
+					\item If $a= b\sqrt 2 \neq 0$, then $b\neq 0$, 
+						\begin{align*}
+							(a+b\sqrt 2)^{-1} &= (2b\sqrt 2)^{-1}\\ &= \frac{1}{4b}\sqrt 2 =0 + \frac{1}{4b}\sqrt 2 \in \bbq(\sqrt 2).
+						\end{align*}
+				    \item If $b \neq 0 $ and $ a \neq b\sqrt 2$, then $a^2 \neq 2b^2$ and    
+				    \begin{align*}
+						(a+b\sqrt 2)^{-1} &= \frac{1}{a^2-2b^2}(a-b\sqrt 2) = \frac{a}{a^2-2b^2}+\frac{-b}{a^2-2b^2}\sqrt 2 \in \bbq(\sqrt 2).
+					\end{align*}
+					since $\frac{a}{a^2-2b^2}, \frac{-b}{a^2-2b^2} \in \bbq$. Besides,\\
+						\begin{align*}
+							(a+b\sqrt 2)\Big( \frac{1}{a^2-2b^2}(a-b\sqrt 2)\Big) &= (a+b\sqrt 2)\Big(\frac{a}{a^2-2b^2}+\frac{-b}{a^2-2b^2}\sqrt 2 \Big) \\&= (a+b\sqrt 2)\Big(\frac{a}{a^2-2b^2}\Big) + (a+b\sqrt 2)\Big(\frac{-b}{a^2-2b^2}\sqrt 2\Big) \\&=  \frac{a^2}{a^2-2b^2}+\frac{ab\sqrt 2}{a^2-2b^2}+ \frac{-ab\sqrt 2}{a^2-2b^2}+\frac{-2b^2}{a^2-2b^2} \\&= \frac{a^2-2b^2}{a^2-2b^2}+\frac{ab-ab}{a^2-2b^2}\sqrt 2=1_{\bbq}+0_{\bbq}\sqrt 2 \\&= 1
+					\end{align*}
+		      		where we use the multiplication associative, commutative and distributive law of the field $\bbr$ since $a,b\sqrt 2, \frac{a}{a^2-2b^2}, \frac{-b}{a^2-2b^2}\sqrt 2 \in \bbr$.\\ 
+			\end{enumerate}
+		\item 
+			\begin{align*}
+				(a+b\sqrt 2)\Big((c+d\sqrt 2) + (e+f\sqrt 2)\Big) &= (a+b\sqrt 2)\Big((c+e)+(d+f)\sqrt 2\Big) \\ &= a(c+e)+a(d+f)\sqrt 2 + b(c+e)\sqrt 2 + 2b(d+f) \\ &= (ac+ae+2bd+2bf) + (ad+af+bc+be)\sqrt 2
+				\end{align*}
+		    where we use the multiplication commutative, associative and  distributive law of the field $\bbr$.\\
+		    \begin{align*}
+				(a+b\sqrt 2)(c+d\sqrt 2) +  (a+b\sqrt 2)(e+f\sqrt 2)
+			\end{align*}
+			\begin{align*}
+				 &= ac+ad\sqrt 2 + bc \sqrt 2 + 2bd + ae + af\sqrt 2 + be\sqrt 2 + 2bf \\
+				 &= (ac+ae+2bd+2bf) + (ad+af+bc+be)\sqrt 2 \\
+				&= (a+b\sqrt 2)\Big((c+d\sqrt 2) + (e+f\sqrt 2)\Big) 
+			\end{align*}
+			where we use the multiplication commutative, associative and  distributive law of the field $\bbr$.\\
+			Similarly, 
+			\begin{align*}
+				\Big((a+b\sqrt 2)+(c+d\sqrt 2)\Big)(e+f\sqrt 2)  &= (e+f\sqrt 2)\Big((a+b\sqrt 2)+(c+d\sqrt 2)\Big) \\ &= (e+f\sqrt 2)(a+b\sqrt 2) + (e+f\sqrt 2)(c+d\sqrt 2)\\ &= (a+b\sqrt 2)(e+f\sqrt 2) + (c+d\sqrt 2)(e+f\sqrt 2) 
+			\end{align*}
+		   according to previous proof steps.\\
+		   \item
+			Since
+			  \begin{align*}
+			 	  0_{\bbq(\sqrt 2)} &= 0_{\bbq} + 0_{\bbq}\sqrt 2\\
+			 	  1_{\bbq(\sqrt 2)} &= 1_{\bbq} + 0_{\bbq}\sqrt 2,
+		  	 \end{align*}
+		  	 \begin{align*}
+		  	 	 1_{\bbq(\sqrt 2)} \neq 0_{\bbq(\sqrt 2)} 
+		  	 \end{align*}
+		  	 given $1_{\bbq} \neq 0_{\bbq}$.
+		\end{enumerate}
+
+
+
+\end{proof}
+
+
+\begin{exer}
+Is
+the set $\bbr^{2\times 2}:=\left\{\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)\mid a,b,c,d\in\bbr\right\}$ is a field under the usual addition and multiplication of matrices? \\
+
+If $\bbr^{2\times 2}$ is a field, prove it.
+Otherwise, prove the field axioms that do hold, and give specific counterexamples for the axioms that fail.
+\end{exer}
+
+No, it is not a field.\\
+\begin{proof}
+$\forall \left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right), \left(\begin{smallmatrix}e&f\\g&h\end{smallmatrix}\right),\left(\begin{smallmatrix}i&j\\k&l\end{smallmatrix}\right) \in \bbr^{2\times 2}$,
+	\begin{enumerate}[(a)]
+		\item 
+			\begin{align*}
+			\aaa + \bbb = \left(\begin{smallmatrix}a+e&b+f\\c+g&d+h\end{smallmatrix}\right) \in \bbr^{2\times 2}
+			\end{align*}
+			since $a+e,b+f,c+d,d+h \in \bbr$.
+			\begin{align*}
+			\aaa\bbb = \left(\begin{smallmatrix}ae+bg&af+bh\\ce+dg&cf+dh\end{smallmatrix}\right) \in \bbr^{2\times 2}
+			\end{align*}
+            since $ae+bg,af+bh,ce+dg,cg+dh \in \bbr$.
+		\item
+			\begin{align*}
+				\aaa + \bbb = \left(\begin{smallmatrix}a+e&b+f\\c+g&d+h\end{smallmatrix}\right) = \left(\begin{smallmatrix}e+a&f+b\\g+c&h+d\end{smallmatrix}\right) = \bbb + \aaa.
+			\end{align*}
+			\begin{align*}
+	    	\left(\aaa + \bbb\right) + \ccc &= \left( \left(\begin{smallmatrix}a+e&b+f\\c+g&d+h\end{smallmatrix}\right) \right) + \ccc \\&= \left(\begin{smallmatrix}a+e+i&b+f+j\\c+g+k&d+h+l\end{smallmatrix}\right) \\ &= \left(\begin{smallmatrix}a+(e+i)&b+(f+j)\\c+(g+k)&d+(h+l)\end{smallmatrix}\right) \\&= \aaa +  \left(\begin{smallmatrix}e+i&f+j\\g+k&h+l\end{smallmatrix}\right) \\ &= \aaa+\left(\bbb+\ccc\right).
+	    	\end{align*}
+	    	\begin{align*}
+	    	0_{\bbr^{2\times 2}} = \left(\begin{smallmatrix}0&0\\0&0\end{smallmatrix}\right).
+	    	\end{align*}
+			\begin{align*}
+	        \aaa + 0_{\bbr^{2\times 2}} = \aaa + \left(\begin{smallmatrix}0&0\\0&0\end{smallmatrix}\right) = \left(\begin{smallmatrix}a+0&b+0\\c+0&d+0\end{smallmatrix}\right) = \aaa.
+			\end{align*}
+			\begin{align*}
+			-\aaa = \left(\begin{smallmatrix}-a&-b\\-c&-d\end{smallmatrix}\right).
+			\end{align*}
+			Check
+			\begin{align*}
+			-\aaa+\aaa = \left(\begin{smallmatrix}-a+a&-b+b\\-c+c&-d+d\end{smallmatrix}\right) = \left(\begin{smallmatrix}0&0\\0&0\end{smallmatrix}\right) = 0_{\bbr^{2\times 2}}.
+		    \end{align*}
+
+		\item	
+			It does not satisfy mutlipication commutative law.
+			For example,
+			\begin{align*}
+			\left(\begin{smallmatrix}1&1\\1&2\end{smallmatrix}\right) \left(\begin{smallmatrix}1&2\\1&2\end{smallmatrix}\right)= \left(\begin{smallmatrix}2&4\\3&6\end{smallmatrix}\right),
+			\end{align*}
+			but 
+			\begin{align*}
+			\left(\begin{smallmatrix}1&2\\1&2\end{smallmatrix}\right) \left(\begin{smallmatrix}1&1\\1&2\end{smallmatrix}\right) =  \left(\begin{smallmatrix}3&5\\3&5\end{smallmatrix}\right).
+			\end{align*}
+		    So 
+		    \begin{align*}
+			\left(\begin{smallmatrix}1&1\\1&2\end{smallmatrix}\right) \left(\begin{smallmatrix}1&2\\1&2\end{smallmatrix}\right) \neq \left(\begin{smallmatrix}1&2\\1&2\end{smallmatrix}\right) \left(\begin{smallmatrix}1&1\\1&2\end{smallmatrix}\right).
+			\end{align*}
+			\begin{align*}
+			\left(\aaa\bbb\right)\ccc &= \left( \left(\begin{smallmatrix}ae+bg&af+bh\\ce+dg&cf+dh\end{smallmatrix}\right) \right)\ccc \\ &=  \left(\begin{smallmatrix}(ae+bg)i+(af+bh)k&(ae+bg)j+(af+bh)l\\(ce+dg)i+(cf+dh)k&(ce+dg)j+(cf+dh)l\end{smallmatrix}\right) \\&= \left(\begin{smallmatrix}aei+afk+bgi+bhk&aej+afl+bgj+bhl\\cei+cfk+dgi+dhk&cej+cfl+dgj+dhl\end{smallmatrix}\right).
+			\end{align*}
+			\begin{align*}
+			\aaa\left(\bbb\ccc\right) &= \aaa \left(\begin{smallmatrix}ei+fk&ej+fl\\gi+hk&gj+hl\end{smallmatrix}\right) \\ &= \left(\begin{smallmatrix}a(ei+fk)+b(gi+hk)&a(ej+fl)+b(gj+hl)\\c(ei+fk)+d(gi+hk)&c(ej+fl)+d(gj+hl)\end{smallmatrix}\right) \\ &= \left(\begin{smallmatrix}aei+afk+bgi+bhk&aej+afl+bgj+bhl\\cei+cfk+dgi+dhk&cej+cfl+dgj+dhl\end{smallmatrix}\right) \\ &= \left(\aaa\bbb\right)\ccc.
+			\end{align*}
+			\begin{align*}
+            1_{\bbr^{2\times 2}} = \left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right).
+			\end{align*}
+			\begin{align*}
+			\aaa 1_{\bbr^{2\times 2}} =\aaa \left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right) =  \left(\begin{smallmatrix}a+b0&a0+b1\\c1+d0&c0+d1\end{smallmatrix}\right)=\aaa.
+			\end{align*}
+			Not every element of $\bbr^{2\time2}$ has a multiplicative inverse, for instance,
+		for $\left(\begin{smallmatrix}1&0\\0&0\end{smallmatrix}\right) \in \bbr^{2\times 2}$, asumme we can find an element $\aaa \in \bbr^{2\times 2}$ such that $\left(\begin{smallmatrix}1&0\\0&0\end{smallmatrix}\right) \aaa = \left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right)$, then we have $\left(\begin{smallmatrix}a&0\\0&0\end{smallmatrix}\right) = \left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right)$, which is impossible since $0_{\bbr} \neq 1_{\bbr} $.
+		\item
+			\begin{align*}
+			\left(\aaa + \bbb\right)\ccc &= \left(\begin{smallmatrix}a+e&b+f\\c+g&d+h\end{smallmatrix}\right)\ccc \\ &= \left(\begin{smallmatrix}(a+e)i+(b+f)k&(a+e)j+(b+f)l\\(c+g)i+(d+h)k&(c+g)j+(d+h)l\end{smallmatrix}\right) \\ &= \left(\begin{smallmatrix}ai+ei+bk+fk&aj+ej+bl+fl\\ci+gi+dk+hk&cj+gj+dl+hl\end{smallmatrix}\right).
+			\end{align*}
+			\begin{align*}
+			\aaa\ccc+\bbb\ccc &= \left(\begin{smallmatrix}ai+bk&aj+bl\\ci+dk&cj+dl\end{smallmatrix}\right)+\left(\begin{smallmatrix}ei+fk&ej+fl\\gi+hk&gj+hl\end{smallmatrix}\right) \\ &= \left(\begin{smallmatrix}ai+ei+bk+fk&aj+ej+bl+fl\\ci+gi+dk+hk&cj+gj+dl+hl\end{smallmatrix}\right) \\ &= \left(\aaa + \bbb\right)\ccc.
+			\end{align*}
+			\item 
+			Since 
+		\begin{align*}
+			0_{\bbr^{2\times 2}} &= \left(\begin{smallmatrix}0&0\\0&0\end{smallmatrix}\right),\\
+        	1_{\bbr^{2\times 2}} &= \left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right),
+        \end{align*}
+        \begin{align*}
+        	0_{\bbr^{2\times 2}} \neq 1_{\bbr^{2\times 2}}
+    	\end{align*}
+    	give $0_{\bbr} \neq 1_{\bbr}$.
+	\end{enumerate}
+
+
+\end{proof}
+
+
+
+
+
+
+\end{document}
+
+
