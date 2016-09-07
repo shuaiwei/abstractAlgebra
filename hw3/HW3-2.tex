@@ -81,7 +81,7 @@ Let $G$ be a group, and let $g\in G$.
 \begin{enumerate}[(a)]
 \item Prove that there exists a unique group homomorphism $f_g\colon\bbz\to G$ such that $f_g(1)=g$. 
 	\begin{proof}
-	Define
+		Define
 		\begin{align*}
 			\bbz & \to G \\
 			f_g(n) & \mapsto g^n
@@ -89,11 +89,44 @@ Let $G$ be a group, and let $g\in G$.
 		Then $f_g$ is a homomorphism since $\forall m,n \in \bbz, f_g(m+n) = g^{m+n} = g^mg^n = f_g(m)f_g(n)$ and satisfies $f_g(1) = g$.\\
 		So there exists a group homomorphism $f_g\colon\bbz\to G$ such that $f_g(1)=g$.\\
 		Next we show it is unique.\\
-		Assume there exists another homomorphism $h_g$ differing from $f_g$ such that $f_g(1) = g$. 
+		Assume there exists another homomorphism $h_g$ differing from $f_g$ such that $h_g(1) = g$. 
+		\begin{enumerate}
+			\item If $n > 0$, $h_g(n) = h_g(\sum_{i=1}^n1) = \prod_{i=1}^nh_g(1) = \prod_{i=1}^n g = g^n$ since $f_g$ is homomorphism.
+			\item If $n < 0$, then $-n > 0$ and $h_g(n) = h_g(-(-n)) = (h_g(-n))^{-1} = (g^{-n})^{-1} = g^n$.
+			\item If $n = 0$, then $h_g(0) = h_g(n-n) = h_g(n)h_g(-n) = g^ng^{-n} = g^{n-n} = g^0$.
+				So $h_g(n) = g^n = f_g(n), \forall n \in \bbz$. \\
+		\end{enumerate}
+		Thus, $f_g = h_g$, which is contradicted by the assumption.\\
+		Hence, such group homomorphism is unique.
 	\end{proof}
 	
 \item Prove that $\im(f_g)=\langle g\rangle$.
+	\begin{proof}
+		$ $\newline
+		$Im(f_g) = \{g^n | n \in \bbz\} \subset G$.\\
+		So $g^n \in G, \forall n \in \bbz$.\\
+		Thus, $<g> = \{g^n \in G | n \in \bbz\} = \{g^n | n \in \bbz\} = Im(f_g)$.
+	\end{proof}
 \item Prove that $f_g$ is a monomorphism if and only if $|g|=\infty$.
+	\begin{proof}
+		$ $\newline
+		\begin{enumerate}
+			\item
+				Assume $f_g$ is a monomorphism, then $f_g$ is 1-1 since $f_g$ is homomorphism.\\
+				Then $\infty= |\bbz| = |Im(f_g)| = |<\langle g \rangle| = |g|$.\\
+				So $|g| = \infty$.
+			\item 
+				Assume $|g| = \infty$.\\
+				Suppose $f_g$ is not homomorphism, then $f_g$ is not 1-1.\\
+				So $\exists$ different $m,n \in \bbz$ such that $f_g(m) = g^m = g^n= f_g(n)$.\\
+				Then $g^(m-n) = e_G$.\\
+				So $|g| = |<g>| \leq m-n < \infty$ since $0< m-n < \infty$.\\
+	
+		\end{enumerate}
+
+
+	\end{proof}
+
 \item Assume that $|g|=n<\infty$.
 \begin{enumerate}[(1)]
 \item Prove that $\ker(f_g)=n\bbz:=\{nm\in\bbz\mid m\in\bbz\}$.
