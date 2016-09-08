@@ -83,13 +83,13 @@ Let $G$ be a group, and let $g\in G$.
 	\begin{proof}
 		Define
 		\begin{align*}
-			\bbz & \to G \\
-			f_g(n) & \mapsto g^n
+			f_g:\bbz & \to G \\
+			n & \mapsto g^n
 		\end{align*}
 		Then $f_g$ is a homomorphism since $\forall m,n \in \bbz, f_g(m+n) = g^{m+n} = g^mg^n = f_g(m)f_g(n)$ and satisfies $f_g(1) = g$.\\
 		So there exists a group homomorphism $f_g\colon\bbz\to G$ such that $f_g(1)=g$.\\
 		Next we show it is unique.\\
-		Assume there exists another homomorphism $h_g$ differing from $f_g$ such that $h_g(1) = g$. 
+		Assume there exists another homomGorphism $h_g$ differing from $f_g$ such that $h_g(1) = g$. 
 		\begin{enumerate}
 			\item If $n > 0$, $h_g(n) = h_g(\sum_{i=1}^n1) = \prod_{i=1}^nh_g(1) = \prod_{i=1}^n g = g^n$ since $f_g$ is homomorphism.
 			\item If $n < 0$, then $-n > 0$ and $h_g(n) = h_g(-(-n)) = (h_g(-n))^{-1} = (g^{-n})^{-1} = g^n$.
@@ -105,7 +105,7 @@ Let $G$ be a group, and let $g\in G$.
 		$ $\newline
 		$Im(f_g) = \{g^n | n \in \bbz\} \subset G$.\\
 		So $g^n \in G, \forall n \in \bbz$.\\
-		Thus, $<g> = \{g^n \in G | n \in \bbz\} = \{g^n | n \in \bbz\} = Im(f_g)$.
+		Thus, $\langle g \rangle = \{g^n \in G | n \in \bbz\} = \{g^n | n \in \bbz\} = Im(f_g)$.
 	\end{proof}
 \item Prove that $f_g$ is a monomorphism if and only if $|g|=\infty$.
 	\begin{proof}
@@ -113,32 +113,67 @@ Let $G$ be a group, and let $g\in G$.
 		\begin{enumerate}
 			\item
 				Assume $f_g$ is a monomorphism, then $f_g$ is 1-1 since $f_g$ is homomorphism.\\
-				Then $\infty= |\bbz| = |Im(f_g)| = |<\langle g \rangle| = |g|$.\\
+				Then $\infty= |\bbz| = |Im(f_g)| = |\langle g \rangle| = |g|$.\\
 				So $|g| = \infty$.
 			\item 
 				Assume $|g| = \infty$.\\
-				Suppose $f_g$ is not homomorphism, then $f_g$ is not 1-1.\\
-				So $\exists$ different $m,n \in \bbz$ such that $f_g(m) = g^m = g^n= f_g(n)$.\\
-				Then $g^(m-n) = e_G$.\\
-				So $|g| = |<g>| \leq m-n < \infty$ since $0< m-n < \infty$.\\
-	
+				Suppose $f_g$ is not a homomorphism, then $f_g$ is not 1-1.\\
+				So $\exists$ different $m,n (m>n) \in \bbz$ such that $f_g(m) = g^m = g^n= f_g(n)$.\\
+				Then $g^{m-n} = e_G$.\\
+				So $|g| = |\langle g \rangle| \leq m-n < \infty$ since $0< m-n < \infty$.\\
+				It is a contradion since $|g| = \infty$ by assumption.\\
+				So $f_g$ is a homomorphism.
 		\end{enumerate}
-
 
 	\end{proof}
 
 \item Assume that $|g|=n<\infty$.
 \begin{enumerate}[(1)]
 \item Prove that $\ker(f_g)=n\bbz:=\{nm\in\bbz\mid m\in\bbz\}$.
+	\begin{proof}
+		$Ker(f_g) = {m \in Z | f_g(m) = g^m = e_G}$.\\
+		Since $|g| = n$, $g^n = e_G$ and $g^{mn} =(g^n)^m = (e_G)^m = e_G, \forall m \in \bbz$. \\
+		Then $mn \in Ker(f_g), \forall m \in \bbz$.\\
+		Moreover, for $k = 1,2,...n-1$, $g^k \neq e_G$. Otherwise, it is contradicted by $|g| = n$. So $g^{mk} \neq e_G, \forall m\in \bbz$ and $m\neq 0$.\\
+		Thus, $Ker(f_g) = n\bbz$.
+	\end{proof}
 \item Prove that 
 there is a unique group monomorphism $\phi_g\colon\bbz/n\bbz\to G$ such that $\phi_g(\overline 1)=g$. 
+\begin{proof}
+	$ $\newline
+	Define
+	\begin{align*}
+		\phi_g:\bbz / n \bbz & \to G \\
+		\bar{m} & \mapsto g^{m} \\
+	\end{align*}
+	Then $\phi_g(\bar{1}) = g^{1} = g$. \\
+	Let $m,k \in \bbz$ and $0 \leq m \leq k \leq n-1$ , and $\phi(\bar{m}) = g^{m} = g^{k} = f(\bar{k})$.\\
+	Then $g^{k-m} = e_G$. \\
+	So $k - m = 0$ since $0 \leq k-m \leq n-1$ . \\
+	Thus, $k = m$. \\
+	So $\bar{m} = \bar{k}$. \\ 
+	Hence, $\phi_g$ is 1-1 and so it is a group monomorphism. \\ 
+	Suppose there exists another group monomorphism $h_g\colon\bbz/n\bbz\to G$ such that $h_g(\bar{1}) = g$.\\
+	Then when $1 < k \leq n-1, h_g(\bar{k}) = h_g(\sum_{i=1}^k \bar{1}) = \prod_{i=1}^k h_g(1) = g^k$ since $h_g$ is a monomorphism.\\
+	Besides, $h_g(\bar{0}) = h_g(\bar{n}) = (h_g(1))^n = g^n = e_G = \phi_g$.\\
+	So $\phi_g(\bar{k}) = h_g(\bar{k})$ for all $0 \leq k \leq n-1$.\\
+	Therefore, $\phi_g = h_g$.\\
+	We conclude that such a group monomorphism is unique.
+\end{proof}
+
 \item Prove that $\im(\phi_g)=\langle g\rangle$.
+	\begin{proof}
+		$Im(\phi_g) = {g^n| n = 0,1,2,...n - 1} = {e_G, g,g^2,...,g^{n-1}} $\\
+		$\langle g \rangle ={e_G, g,g^2,...,g^{n-1}}$ since $|g| = n$.\\
+		So $Im(\phi_g) = \langle g \rangle$.
+	\end{proof}
 \item We say that a diagram 
 of group homomorphisms
 $$\xymatrix{A\ar[r]^-\alpha\ar[rd]_{\alpha'}&B\ar[d]^\beta \\ & C}$$
 ``commutes'' when $\beta\circ\alpha=\alpha'$.
 Let $\pi\colon \bbz\to\bbz/n\bbz$ be the canonical epimorphism, and prove that the following diagram commutes.
 $$\xymatrix{\bbz\ar[r]^-{\pi}\ar[rd]_{f_g}&\bbz/n\bbz\ar[d]^{\phi_g} \\ & G}$$
+
 \end{enumerate}
 \end{enumerate}
 \end{exer}
