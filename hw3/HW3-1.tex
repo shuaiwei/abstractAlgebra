@@ -66,8 +66,8 @@
 \noindent MATH 8510, Abstract Algebra I \\
 Fall 2016\\
 Exercises 3-1\\
-Shuai Wei
-Collaborators: Liu XiaoYuan
+Shuai Wei \\
+Collaborator: Liu XiaoYuan
 \
 
 %\noindent
@@ -89,20 +89,21 @@ Prove that $H\cup K\leq G$ if and only if $H\subseteq K$ or $K\subseteq H$.
 		$\forall x,y\in H \cup K$, we have $x, y \in H$ or $K$.\\
 		Since $H \subseteq K$, we have $x,y \in K \subset H\cup K$.\\
 		$K$ is a group, so $xy^{-1} \in K \subset H\cup K$.\\
+		Furthermore, since $H, K \leq G$, $H,K \subset G$ and then $H \cup K \subset G$.\\
 		Thus, $H\cup K \leq G$.
 	\item 
 		Assume $H\cup K\leq G$. \\
-		$\forall x \in H \subset H\cup K , y \in G \subset H\cup K$.\\
-		we have $xy^{-1} \in H\cup K\leq G$ since $H\cup K$ is a subgroup. \\
+		$\forall x \in H \subset H\cup K , y \in K \subset H\cup K$,\\
+		we have $xy^{-1} \in H\cup K\leq G$. \\
 		Then $xy^{-1}\in H$ or $K$.
 		\begin{enumerate}[(1)]
-			\item If $xy^{-1} \in H, x^{-1} \in H , x^{-1}x^y{-1} = y^{-1} \in H$. \\
+			\item If $xy^{-1} \in H$, since $x^{-1} \in H$ , we have $x^{-1}xy^{-1} = y^{-1} \in H$. \\
 				Then $(y^{-1})^{-1} = y\in H$.\\
-				So $\forall y \in K$, we have $y \in H$.\\
-				Thus, $K \subseteq H$.
-			\item If $xy^{-1} \in K, y \in K, x^y{-1}y = x \in K$\\
-				So $\forall x \in H$, we have $x \in K$.\\
-				Thus, $H \subseteq K$.
+				$y \in K$ is arbitrary,\\
+				so $K \subseteq H$.
+			\item If $xy^{-1} \in K$, since $y \in K$, we have $xy^{-1}y = x \in K$\\
+				$x \in H$ is arbitrary,\\
+				so $H \subseteq K$.
 		\end{enumerate}
 		Hence, $H\subseteq K$ or $K\subseteq H$.
 	\end{enumerate}
@@ -127,14 +128,14 @@ Prove that $S_{n-1}\cong G_i\leq S_n$.
 		So it is obvious that $G_i$ is isomorphic to $S_{n-1}$.
 		\item
 	    For any element in $S_{n-1}$, it is a permutation in $S_n$ with $n$ fixed, \\
-		so $G_i \subset S_n$.\\
+		so $S_{n-1} \subset S_n$.\\
 		Besides, both of $S_{n-1}$ and $S_n$ are symmetric groups, which has same group operation, i.e, permutation composition.\\
 		So $S_{n-1} \leq S_n$. \\
 		\item
 		By the definition of $G_i$, we have $G_i \subset S_n$.\\
 		Let $e_{S_n}$ be the permutation which fixes $1,2,...n$, then $e_{S_n} \in S_{n}$ and $e_{S_n} \in G_{i}$ since it also fixes $i$.\\
 		So $G_i \neq \emptyset$. \\
-		$\forall x,y \in G_i \leq S_n, xy^{-1} \in S_n$ since $S_n$ is a group.\\
+		$\forall x,y \in G_i \subset S_n, xy^{-1} \in S_n$ since $S_n$ is a group.\\
 		$y^{-1} \in G_i$ since $y^{-1}$ just the reverse order of the permutation $y$, which also keeps $i$ fixed. \\
 		So $xy^{-1}(i) = x(y^{-1}(i)) = x(i) = i$. \\
 		Thus, $xy^{-1} \in G_i$.\\
