@@ -128,16 +128,41 @@ Let $f\colon G\to H$ be a group homomorphism.
 				Assume $G$ is abelian.\\
 				Then 
 				\begin{align*}
-				[G,G] &= \langle xyx^{-1}y^{-1} |x,y \in G\langle \\
-			    	  &= \langle (xx^{-1})(yy^{-1}) |x,y \in G \langle \\
-			    	  &= \langle e |x,y \in G \langle \\
+				[G,G] &= \langle xyx^{-1}y^{-1} |x,y \in G\rangle \\
+			    	  &= \langle (xx^{-1})(yy^{-1}) |x,y \in G \rangle \\
+			    	  &= \langle e |x,y \in G \rangle \\
 			    	  & = \{e\}
 				\end{align*}	
 			\item
+				Assume $[G,G] = \{e\}$.\\ 
+				By the definition of $[G,G]$, we have 
+				$\forall x,y \in G$,
+				\begin{align*}
+					xyx^{-1}y^{-1} = e  & \Longleftrightarrow xyx^{-1} = y. \\
+										& \Longleftrightarrow xy = yx. 
+				\end{align*}
+				So $G$ is abelian.
 		\end{enumerate}
 	\end{proof}
 \item Prove that $f([G,G])\subseteq[H,H]$.
-\item Prove that if   $H$ is abelian, then $[G,G]\subseteq\ker(f)$.
+	\begin{proof}
+		$ $\newline
+		$\forall x,y \in G, xyx^{-1}y^{-1} \in [G,G]$,\\
+		$f(xyx^{-1}y^{-1}) = f(x)f(y)f(x^{-1})f(y^{-1}) = f(x)f(y){f(x)}^{-1}{f(y)}^{-1}$. \\
+		since $f$ is a homomorphism.\\
+		Moreover, $f(x), f(y) \in H$, so $f(x)f(y){f(x)}^{-1}{f(y)}^{-1} \in [H,H]$.\\
+		Thus, $f([G,G]) \subset [H,H]$.\\
+	\end{proof}
+\item Prove that if $H$ is abelian, then $[G,G]\subseteq\ker(f)$.
+	\begin{proof}
+		$ $\newline
+		$\forall x,y \in G, xyx^{-1}y^{-1} \in [G,G]$,\\
+		$f(xyx^{-1}y^{-1}) = f(x)f(y)f(x^{-1})f(y^{-1}) = f(x)f(y){f(x)}^{-1}{f(y)}^{-1}$. \\
+		since $f$ is a homomorphism.\\
+		Moreover, $f(x), f(y) \in H$ and $H$ is abelian, \\
+		so $f(xyx^{-1}y^{-1}) = (f(x){f(x)}^{-1})(f(y){f(y)}^{-1}) = e_H$.\\
+		Thus, $[G,G]\subseteq\ker(f)$.
+	\end{proof}
 \end{enumerate}
 \end{exer}
 
@@ -145,8 +170,41 @@ Let $f\colon G\to H$ be a group homomorphism.
 See the text for a hint for this exercise.
 \begin{enumerate}[(a)]
 \item Prove that every finitely generated subgroup of $(\bbq,+)$ is cyclic.
+	\begin{proof}
+		$ $\newline
+		Assume $H$ is finitely generated subgroup of $\bbq$\\ 
+		Since $\forall q \in \bbq, q = \frac{m}{n}$ for some $m,n\in \bbn$ and $n \neq 0$, $H$ can be written as 
+		$$H = \Big\langle \frac{a_1}{b_1},\frac{a_2}{b_2},...,\frac{a_n}{b_n} \Big\rangle,$$ 
+		where $n \in \bbn$ and $a_i,b_i \in \bbn $ for $i =1,2,...,n$. \\
+		Since $(\bbq,+)$ is abelian and $\frac{a_i}{b_i} \in \bbq$ for $i = 1,2,...,n$, 
+		\begin{align*}
+			H &= \Big\langle \frac{a_1}{b_1},\frac{a_2}{b_2},...,\frac{a_n}{b_n} \Big\rangle \\
+			  &= \Big\{\epsilon_1\big(\frac{a_1}{b_1}\big)+\epsilon_2\big(\frac{a_2}{b_2}\big) + ...+\epsilon_n\big(\frac{a_n}{b_n}\big)|\epsilon_1,\epsilon_2,...,\epsilon_n \in \bbz\Big\}. 
+	    \end{align*}
+		Let $k = b_1b_2...b_n \neq 0$ since $b_i \neq 0$ for $i =1,2,...,n$.\\
+		We claim $H \leq \langle \frac{1}{k} \rangle$.\\
+	    Let $h \in H$, then 
+	    $$h = z_1(\frac{a_1}{b_1})+z_2(\frac{a_2}{b_2}) + ...+z_n(\frac{a_n}{b_n}) \text{ for some } z_1,z_2,...,z_n \in \bbz.$$
+	    So 
+	    $$h = \frac{z_1a_1b_2...b_n + z_2a_2b_1b_3...b_n + z_na_nb_1b_2...b_{n-1}}{b_1b_2...b_n} = \frac{z}{k},$$
+	    where $z = z_1a_1b_2...b_n + z_2a_2b_1b_3...b_n + z_na_nb_1b_2...b_{n-1} \in \bbz$ since $z_i,a_i,b_i \in \bbz$ for $i = 1,2,...,n$.
+	    Thus $h \in \langle \frac{1}{k} \rangle$.\\
+	    Therefore $H \subseteq \langle \frac{1}{k} \rangle$.\\
+	    As a result, our claim $H \leq \langle \frac{1}{k} \rangle$ holds since $H, \langle \frac{1}{k} \rangle $ are both groups.\\
+	    It is obvious $\langle \frac{1}{k} \rangle$ is cyclic.\\
+	    So $H$ is also cyclic.
+	\end{proof}
 \item Prove that $(\bbq,+)$ is not cyclic.
 Conclude that $(\bbq,+)$ is not finitely generated.
+	\begin{proof}
+	Assume $(\bbq,+)$ is cyclic\\
+	Then $\exists a,b \in \bbz$ and $b \neq 0$ such that $\bbq = \langle \frac{a}{b}\rangle$. \\
+	So for $\frac{a}{2b} \in (\bbq,+)$, suppose $\frac{a}{2b} = n\frac{a}{b}$ for some $n \in bbz$.\\
+	Then we have $n = \frac{1}{2}$, which is contradicted by $n\in \bbz$.\\
+	Thus, $(\bbq,+)$ is not cyclic.\\
+	Hence, we conclude that $(\bbq,+)$ is not finitely generated. Otherwise, by part $(a)$, we have $(\bbq,+)$ is cyclic, which is a contradiction since we have shown $(\bbq,+)$ is not cyclic.
+
+	\end{proof}
 \end{enumerate}
 \end{exer}
 
