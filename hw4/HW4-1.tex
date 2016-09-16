@@ -66,8 +66,8 @@
 \noindent MATH 8510, Abstract Algebra I \\
 Fall 2016\\
 Exercises 4-1\\
-Due date Thu 15 Sep 4:00PM
-
+Due date Thu 15 Sep 4:00PM\\
+Shuai Wei
 \
 
 %\noindent
@@ -88,7 +88,7 @@ Let $f\colon G\to H$ be a group homomorphism.
 		$ $\newline
 		First we show $f(\langle A\rangle)$ is a subgroup of $H$.\\
 		$e_G \in \langle A\rangle$ since $\langle A \rangle$ is a subgroup of $G$.\\
-		Then $f(e_G) = e_H \in f(\langle A \rangle)$ since f is homomorphism.\\
+		Then $f(e_G) = e_H \in f(\langle A \rangle)$ since f is a homomorphism.\\
 		So $f(\langle A\rangle) \neq \emptyset$.\\
 		Let $y_1, y_2 \in f(\langle A\rangle)$. \\
 		Then $\exists x_1, x_2 \in \langle A\rangle$ such that $f(x_1) = y_1 $ and $f(x_2) = y_2$.\\
@@ -98,9 +98,11 @@ Let $f\colon G\to H$ be a group homomorphism.
 		$f(x_1x_2^{-1}) = f(x_1)f(x_2^{-1}) =y_1f(x_2)^{-1} = y_1y_2^{-1} \in f(\langle A\rangle)$.\\
 		Besides, $f(\langle A\rangle) \subset H$.\\ 
 		Thus, $f(\langle A\rangle)$ is a subgroup of $H$.\\
-		$f(A) \subseteq f(\langle A\rangle)$, so 
+		It is obvious that $f(A) \subseteq f(\langle A\rangle)$, \\
+		so 
 		$$\langle f(A) \rangle \subseteq f(\langle A\rangle).$$
-		Let $x \in \langle A \rangle$, then $x = a_1^{\epsilon_1}a_2^{\epsilon_2}...a_n^{\epsilon_n}$ for some $n \in \bbn$ and $a_1,a_2,....a_n \in A$ and $\epsilon_1,\epsilon_2,...\epsilon_n \in \bbz$.
+		Let $x \in \langle A \rangle$, then $x = a_1^{\epsilon_1}a_2^{\epsilon_2}...a_n^{\epsilon_n}$ for some $n \in \bbn$ and $a_1,a_2,....a_n \in A$ and $\epsilon_1,\epsilon_2,...\epsilon_n \in \bbz$.\\
+		Then
 		\begin{align*}
 			f(x) &= f(a_1^{\epsilon_1}a_2^{\epsilon_2}...a_n^{\epsilon_n}) \\
 				 	  &= {f(a_1)}^{\epsilon_1} {f(a_2)}^{\epsilon_2}...{f(a_n)}^{\epsilon_n}\\
@@ -159,8 +161,8 @@ Let $f\colon G\to H$ be a group homomorphism.
 		$\forall x,y \in G, xyx^{-1}y^{-1} \in [G,G]$,\\
 		$f(xyx^{-1}y^{-1}) = f(x)f(y)f(x^{-1})f(y^{-1}) = f(x)f(y){f(x)}^{-1}{f(y)}^{-1}$. \\
 		since $f$ is a homomorphism.\\
-		Moreover, $f(x), f(y) \in H$ and $H$ is abelian, \\
-		so $f(xyx^{-1}y^{-1}) = (f(x){f(x)}^{-1})(f(y){f(y)}^{-1}) = e_H$.\\
+		Moreover, $f(x), f(y) \in H$ and $H$ is abelian. \\
+		Then $f(xyx^{-1}y^{-1}) = \Big(f(x){f(x)}^{-1}\Big)\Big(f(y){f(y)}^{-1}\Big) = e_He_H = e_H$.\\
 		Thus, $[G,G]\subseteq\ker(f)$.
 	\end{proof}
 \end{enumerate}
@@ -187,7 +189,7 @@ See the text for a hint for this exercise.
 	    $$h = z_1(\frac{a_1}{b_1})+z_2(\frac{a_2}{b_2}) + ...+z_n(\frac{a_n}{b_n}) \text{ for some } z_1,z_2,...,z_n \in \bbz.$$
 	    So 
 	    $$h = \frac{z_1a_1b_2...b_n + z_2a_2b_1b_3...b_n + z_na_nb_1b_2...b_{n-1}}{b_1b_2...b_n} = \frac{z}{k},$$
-	    where $z = z_1a_1b_2...b_n + z_2a_2b_1b_3...b_n + z_na_nb_1b_2...b_{n-1} \in \bbz$ since $z_i,a_i,b_i \in \bbz$ for $i = 1,2,...,n$.
+	    where $z = z_1a_1b_2...b_n + z_2a_2b_1b_3...b_n + z_na_nb_1b_2...b_{n-1} \in \bbz$ since $z_i,a_i,b_i \in \bbz$ for $i = 1,2,...,n$.\\
 	    Thus $h \in \langle \frac{1}{k} \rangle$.\\
 	    Therefore $H \subseteq \langle \frac{1}{k} \rangle$.\\
 	    As a result, our claim $H \leq \langle \frac{1}{k} \rangle$ holds since $H, \langle \frac{1}{k} \rangle $ are both groups.\\
@@ -197,9 +199,10 @@ See the text for a hint for this exercise.
 \item Prove that $(\bbq,+)$ is not cyclic.
 Conclude that $(\bbq,+)$ is not finitely generated.
 	\begin{proof}
+	$ $\newline
 	Assume $(\bbq,+)$ is cyclic\\
 	Then $\exists a,b \in \bbz$ and $b \neq 0$ such that $\bbq = \langle \frac{a}{b}\rangle$. \\
-	So for $\frac{a}{2b} \in (\bbq,+)$, suppose $\frac{a}{2b} = n\frac{a}{b}$ for some $n \in bbz$.\\
+	Since $\frac{a}{2b} \in (\bbq,+)$, $\frac{a}{2b} = n\frac{a}{b}$ for some $n \in \bbz$.\\
 	Then we have $n = \frac{1}{2}$, which is contradicted by $n\in \bbz$.\\
 	Thus, $(\bbq,+)$ is not cyclic.\\
 	Hence, we conclude that $(\bbq,+)$ is not finitely generated. Otherwise, by part $(a)$, we have $(\bbq,+)$ is cyclic, which is a contradiction since we have shown $(\bbq,+)$ is not cyclic.

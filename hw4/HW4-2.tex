@@ -1,0 +1,221 @@
+\documentclass{amsart}
+
+% PACKAGES
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%\theoremstyle{definition}
+%\newtheorem{exer}{Exercise}
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{conj}[lem]{Conjecture}
+\newtheorem{intthm}{Theorem}
+\renewcommand{\theintthm}{\Alph{intthm}}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{ex}[lem]{Example}
+\newtheorem{question}[lem]{Question}
+\newtheorem{questions}[lem]{Questions}
+\newtheorem{problem}[lem]{Problem}
+\newtheorem{disc}[lem]{Remark}
+\newtheorem{rmk}[lem]{Remark}
+\newtheorem{construction}[lem]{Construction}
+\newtheorem{notn}[lem]{Notation}
+\newtheorem{fact}[lem]{Fact}
+\newtheorem{para}[lem]{}
+\newtheorem{exer}[lem]{Exercise}
+\newtheorem{remarkdefinition}[lem]{Remark/Definition}
+\newtheorem{notation}[lem]{Notation}
+\newtheorem{step}{Step}
+\newtheorem{convention}[lem]{Convention}
+\newtheorem*{Convention}{Convention}
+\newtheorem{assumption}[lem]{Assumption}
+
+\newcommand{\fmn}{F^{m\times n}}
+\newcommand{\fnn}{F^{n\times n}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\Span}{\operatorname{Span}}	
+\newcommand{\rank}{\operatorname{rank}}	
+\begin{document}
+
+\noindent MATH 8510, Abstract Algebra I \\
+Fall 2016\\
+Exercises 4-2\\
+Due date Thu 15 Sep 4:00PM
+
+\
+
+%\noindent
+%Throughout this homework set, let $F$ be a field
+%
+%
+%\
+
+
+\begin{exer}
+Let $A$ and $B$ be groups, and set $A':=\{(a,e_B)\in A\times B\mid a\in A\}\subseteq A\times B$.
+\begin{enumerate}[(a)]
+\item 
+Prove that $A'$ is a normal subgroup of $A\times B$.
+\begin{proof}
+	$ $\newline
+	We show it by the definition of a subgroup.\\
+	First we show $A' \leq A \times B$.\\
+	Since $A$ is a group, $e_A \in A$.\\
+	Then $(e_A,e_B) \in A'$.\\
+	So $A' \neq \emptyset$.\\
+	$\forall a_1,a_2 \in A, x = (a_1, e_B) \in A',y =  (a_2,e_B) \in A'$,
+	\begin{align*}
+		xy^{-1} &= (a_1, e_B)(a_2,e_B)^{-1} \\
+					  &= (a_1, e_B)({a_2}^{-1},{e_B}^{-1}) \\
+					  &= (a_1{a_2}^{-1},e_B{e_B}^{-1}) \\
+					  &= (a_1{a_2}^{-1},e_B).
+	\end{align*}
+	Since $A$ is a group and $a_1,a_2 \in A$, $a_1{a_2}^{-1} \in A$.\\
+	So $xy^{-1} = (a_1{a_2}^{-1},e_B) \in A'$.\\
+	Besides, $A' \subseteq A\times B$ by the definition of $A'$.\\
+	Thus, $A' \leq A \times B$.\\
+\end{proof}
+\item Prove that $A'\cong A$ and $(A\times B)/A'\cong B$.
+	\begin{proof}
+		$ $\newline
+		\begin{enumerate}[(i)]
+		\item
+			Define
+				\begin{align*}
+					f: A& \to A' \\
+					a& \mapsto (a,e_B).
+				\end{align*}
+				$\forall x, y \in A$, 
+			\begin{align*}
+				f(xy) &= (xy, e_B) \\
+				  	  &= (xy,e_Be_B) \\
+				  	  &= (x,e_B)(y,e_B) \\
+				  	  &= f(x)f(y)
+			\end{align*}
+			So $f$ is a homomorphism.\\
+			Since
+				\begin{align*}
+					\forall a \in \ker(f) & \Longleftrightarrow f(a) = (e_A,e_B)\\
+										  & \Longleftrightarrow (a, e_B) = (e_A,e_B) \\			
+										  & \Longleftrightarrow a = e_A,			
+				\end{align*}
+			$\ker(f) = e_A$.\\
+			So $f$ is $1$-$1$.\\
+			$\im(f) = \{(a,e_B)| a\in A\} = \{(a,e_B)\in A\times B\mid a\in A\} = A' $ \\ 
+			So $f$ is onto.\\
+			Thus, $f$ is an isomorphism.\\
+			Hence, $A'\cong A$.
+		\item 
+			Define
+				\begin{align*}
+					F:  A \times B &\to B\\
+							 (a,b) &\mapsto b
+				\end{align*}
+				$\forall a,b\in A, c,d \in B, ac,bd \in A\times B $, then   
+			\begin{align*}
+				F\big((a,b)(c,d)\big) &= F\big((ac,bd)\big) \\ 
+									  &= bd \\
+									  &= F\big((a,b)\big)F\big((c,d)\big).
+			\end{align*}
+			So $F$ is a homomorphism.\\
+			$\forall a \in A, (a,e_B) \in A', F\big((a,e_B)\big) = e_B$.\\
+			So $A' \subset \ker(F)$ \\
+			Then define
+			\begin{align*}
+				f: A\times B / A' & \to B. \\
+				\overline{(a,b)} & \mapsto F\big((a,b)\big)
+			\end{align*}
+			Then $f$ is a well-defined homomorphism.\\
+			Besides, $\im(f) = \im(F) = \{b | b\in B\} = B$.\\
+			So $f$ is onto. \\
+			Since
+			\begin{align*}
+				\forall \overline{(a,b)} \in \ker(f) & \Longleftrightarrow f(\overline{(a,b)}) = e_B\\
+													& \Longleftrightarrow F\big((a,b)\big) = e_B \\
+													& \Longleftrightarrow b = e_B, a \in A\\
+													& \Longleftrightarrow (a,b) \in A', 
+			\end{align*}
+			$\ker(f) = A'$.\\			
+			So $f$ is $1$-$1$.\\
+			Thus, $f$ is an isomorphism. \\
+			Hence, $(A\times B)/A'\cong B$.
+
+		\end{enumerate}
+	\end{proof}
+\end{enumerate}
+\end{exer}
+
+\begin{exer}
+Let $G$ be a group, and consider the commutator subgroup $[G,G]$ from Exercise 4-1.1.
+\begin{enumerate}[(a)]
+\item Prove that $[G,G]$ is a normal subgroup of $G$.
+	\begin{proof}
+		$\forall x,y,g \in G, xyx^{-1}y^{-1} \in [G,G]$. \\
+		Then 
+		\begin{align*}
+			g(xyx^{-1}y^{-1})g^{-1} &= gxg^{-1}gyg^{-1}gx^{-1}g^{-1}gy^{-1}g^{-1} \\
+     			 		   		  &= (gxg^{-1})(gyg^{-1})(gx^{-1}g^{-1})(gy^{-1}g^{-1}) \\
+    	   				  	      &=(gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1}.	
+		\end{align*}
+		Furthermore, $gxg^{-1}, gyg^{-1} \in G$ since $x,y,g \in G$.\\
+		So $g(xyx^{-1}y^{-1})g^{-1} \in [G,G]$.\\
+		Thus, $[G,G]$ is a normal subgroup of $G$.
+	\end{proof}
+(Hint: simplify the following product $(gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1}$.)
+\item Prove that $G/[G,G]$ is abelian.
+	\begin{proof}
+		$\forall x,y\in G, xyx^{-1}y^{-1} \in [G,G]$.\\
+		Then
+		    \begin{align*}
+		    	 xyx^{-1}y^{-1} \in [G,G] & \Longleftrightarrow xy(yx)^{-1} \in [G,G]\\
+		    							  & \Longleftrightarrow xy[G,G] = yx[G,G]\\
+		    							  & \Longleftrightarrow x[G,G]y[G,G] = y[G,G]x[G,G]
+		    \end{align*}
+		since $[G,G]$ is a normal subgroup of $G$.\\
+		Thus, $G/[G,G]$ is abelian. 	
+	\end{proof}
+\item Let $N$ be a normal subgroup of $G$, and prove that $G/N$ is abelian if and only if $[G,G]\subseteq N$.
+	\begin{proof}
+		$ $\newline
+		Since $N$ is a normal subgroup of $G$ and $[G,G] = \{xyx^{-1}y^{-1}|x,y \in G\}$, \\
+		$\forall x,y\in G$, 
+			\begin{align*}
+				G/N \text{ is abelian } &\Longleftrightarrow xNyN = yNxN \\
+				 & \Longleftrightarrow xyN = yxN\\
+							& \Longleftrightarrow xy(yx)^{-1} \in N \\
+				   &\Longleftrightarrow  xyx^{-1}y^{-1} \in N\\
+				   &\Longleftrightarrow [G,G]\subseteq N.
+			\end{align*}
+	\end{proof}
+\end{enumerate}
+\end{exer}
+
+
+
+\end{document}
