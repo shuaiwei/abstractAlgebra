@@ -1,0 +1,232 @@
+\documentclass[14pt]{amsart}
+% PACKAGES
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%\theoremstyle{definition}
+%\newtheorem{exer}{Exercise}
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{conj}[lem]{Conjecture}
+\newtheorem{intthm}{Theorem}
+\renewcommand{\theintthm}{\Alph{intthm}}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{ex}[lem]{Example}
+\newtheorem{question}[lem]{Question}
+\newtheorem{questions}[lem]{Questions}
+\newtheorem{problem}[lem]{Problem}
+\newtheorem{disc}[lem]{Remark}
+\newtheorem{rmk}[lem]{Remark}
+\newtheorem{construction}[lem]{Construction}
+\newtheorem{notn}[lem]{Notation}
+\newtheorem{fact}[lem]{Fact}
+\newtheorem{para}[lem]{}
+\newtheorem{exer}[lem]{Exercise}
+\newtheorem{remarkdefinition}[lem]{Remark/Definition}
+\newtheorem{notation}[lem]{Notation}
+\newtheorem{step}{Step}
+\newtheorem{convention}[lem]{Convention}
+\newtheorem*{Convention}{Convention}
+\newtheorem{assumption}[lem]{Assumption}
+
+\newcommand{\fmn}{F^{m\times n}}
+\newcommand{\fnn}{F^{n\times n}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\Span}{\operatorname{Span}}	
+\newcommand{\rank}{\operatorname{rank}}	
+\begin{document}
+
+\noindent MATH 8510, Abstract Algebra I \\
+Fall 2016\\
+Exercises 5-1\\
+Shuai Wei\\
+
+\
+
+%\noindent
+%Throughout this homework set, let $F$ be a field
+%
+%
+%\
+
+\begin{exer}
+Let $G$ be a group.
+\begin{enumerate}[(a)]
+\item (3.1.36) Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian. (See the hint in the text.)
+  \begin{proof}	
+	At first, we show $Z(G) \unlhd G$.\\
+	We already know $Z(G) \leq G$. Besies, since\\
+	$\forall g \in G, z \in Z(G) , gz = zg$ by the definition of $Z(G)$,
+   	\[ gzg^{-1} = zgg^{-1} = z \in Z(G), \forall g\in G, z\in Z(G) \] 
+	Thus,
+	\[Z(G) \unlhd G.\]
+	Since $G/Z(G)$ is cyclic, there exist $x \in G$ such that $G/Z(G) =\langle xZ(G) \rangle$.\\
+	Next we show every element of $G$ can be written in the form $x^az$ for some integer $a\in Z$ and some element $z \in Z(G)$.\\
+	Then $\forall g \in G$, there exists $n \in \bbz$ such that
+  	\[gZ(G) = \big(xZ(G)\big)^n = x^nZ(G) \]
+	since $Z(G) \unlhd G $.\\
+	Then 
+	\[(x^n)^{-1}g \in Z(G).\]
+	So there exists $z \in Z(G)$ such that
+	\[(x^n)^{-1}g = z\]
+	Thus,
+	\[ g = x^nz\]
+	At last, we have $\forall g,h \in G$, there exists $ m,n \in Z, y,z\in Z(G)$ such that
+  	\[g= x^my, \text { and } h = x^nz,\]
+	 and we have 
+	 \begin{align*}
+  		 gh &= x^myx^nz \\
+		 	&=x^mx^nyz\\
+			&=x^{m+n}zy\\
+			&=x^{n+m}zy\\
+			&=zx^{n+m}y\\
+			&=zx^nx^my\\
+			&=x^nzx^my\\
+			&=hg
+  	 \end{align*}
+	So $G$ is abelian.
+	
+  \end{proof}  	  
+
+\item (3.2.4) Prove that if $|G|=pq$ where $p$ and $q$ are (not necessarily distinct) primes, then either $G$ is abelian or $Z(G)=\{e\}$.
+  \begin{proof}
+	We first show that if $H$ is a group and $|H| = p$, where $p$ is a prime, then $G$ is cyclic.\\
+	Let $x \in H$ and $x \neq 1$, then $|x| \neq 1$ and $|x| \mid |H|$.\\
+	So $|x| = p$ and then $langle x\rangle = H$. \\
+	Thus, $H$ is cyclic.\\
+	Since $Z(G) \leq G$, $Z(G)| \mid |G|$.\\
+	Given $|G| =pq$ and $p,q$ are primes, we have
+	$|Z(G)| = 1$ or $p$, $q$ or $pq$.\\
+	\begin{enumerate}[(i)]
+	  \item If $|Z(G)| = 1$, then $Z(G) = \{e\}$.
+	  \item If $|Z(G)| = pq$, we know $Z(G) \leq G$ and then $Z(G) = G$.\\ 
+		So $\forall h\in Z(G)$, we have $h \in G$ arbitrary and  
+	  	\[ hg= gh,\forall g \in G.\] 
+		by the definition of $Z(G)$.\\
+		Thus $G$ is abelian.
+	  \item
+		If $|Z(G)| = p$, we have 
+		\[|G/Z(G)| = \frac{|G|}{|Z(G)|} = q.\]
+		Since q is a prime, $G/Z(G)$ is cyclic by the previous proof.\\
+		Thus, $G$ is abelian according to part (a).
+ 	  \item 
+		If $|Z(G)| = q$, follow the similar process as (iii), we have $G$ is abelian.
+	\end{enumerate}
+		In summary, if $|G| = pq$ where $p,q$ are primes, then either $G$ is abelian or $Z(G) = {e}$.
+
+  \end{proof}
+
+\end{enumerate}
+\end{exer}
+
+
+\begin{exer}[Bonus, 3.2.9]
+Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such that $p\mid |G|$, then there is an element $x\in G$ such that $|x|=p$.
+(Note that the text includes an outline of a proof in Exercise 3.2.9.)
+\end{exer}
+\begin{proof}
+	Let
+	\[S=\{ (x_1,x_2,...x_p)| x_i \in G \text{ and } x_1x_2...x_p =1\}.\]
+	\begin{enumerate}
+	  \item
+		At first, we show $|S|= |G|^{p-1}$.\\
+ 	    Let $x_i, i = 1,2,...p-1$ be any element of $G$, then $x_p = x_1^{-1}x_2^{-1}...x_{p-1}^{-1}$. \\
+		Namely, $x_i,i = 1,2,...p-1$ has $|G|$ choices each, and then $x_p$ only has one. So $|S| = |G|^{p-1}$.	\\
+		Define a relation $\sim $ on $S$ by letting $\alpha \sim \beta$ if $\beta$ is a cyclic permutation of $\alpha$.
+	  \item
+	  Then we show a cyclic permutation of an element of $S$ is again an element of $S$.\\
+  	$\forall s = (x_1,x_2,...x_p) \in S$, we have $x_1x_2...x_p = 1$.\\
+	Define 
+	\begin{align*}
+		r: S &\to S	\\
+		(x_1,x_2,...x_p) &\mapsto (x_p,x_1,...x_{p-1})	
+	\end{align*}
+	Since $(x_1,x_2,...x_p) \in G$, $x_1x_2...x_p =1$.\\
+	So $x_px_1x_2...x_{p-1}x_p^{-1} = x_p1 x_p^{-1}$.\\
+	Namely, $x_px_1...x_{p-1} =1$. So $(x_p,x_1,...x_{p-1}) \in S$.\\
+	Thus, $f$ is well-defined.\\
+	Similarly, define
+	\begin{align*}
+		l: S &\to S	\\
+		(x_1,x_2,...x_p) &\mapsto (x_2,x_3...x_{p},x_1)	
+	\end{align*}
+	which is well-defined.\\
+	Hence, a cyclic permutation of an element of $S$ is again an element of $S$.
+	  \item
+		Next we show $\sim $ is an equivalence relation.\\
+		\begin{enumerate}[(a)]
+		\item
+		By the definition of $r$ and $l$, we have $r^p = e_r$ and $l^p =e_l$. \\
+	Then $\forall s \in S, r^p(s) = e_r(s) = s$. \\
+	So $s \sim s$.
+  		\item
+	$\forall s,t \in S$,if $s\sim t$, without loss of generality, assume $s=r^n(t)$ for some $n\in \bbz$. Then $t=l^n(s)$. As a result, $t\sim s$.  
+	  	\item
+		Let $s,t,v \in G$ and $r \sim s$ and $s~t$.\\
+		Without loss of generality, assume $s = r^m(t)$ and $t = l^n(v)$ for some $m,n\in \bbz$.\\
+		Then $s = r^m(l^n(v)) = r^{m-n}(v)$ if $m \geq n$ or $s = l^{n-m}(v)$ if $m < n$.\\
+		So $s \sim v$.
+	  	\end{enumerate}
+		Thus, $\sim $ is an equivalence relation.
+	\item	
+	  Then we show an equivalence class contains a single element if and only if it is of the form $(x,x,...,x)$ with $x^p = 1$.\\
+	  Assume an equivalence class contains a single element $s=(x_1,x_2,...,x_p)$ with $x_1x_2...x_p=1$.\\
+	  Then $s= l(s) = l^2(s) = ...=l^{p-1}(s)$.\\
+	  Look at the first element of $s,l(s),l^{p-1}(s)$, we have $x_1=x_2=...=x_p$.\\
+	  Therefore, such a element is of the form $s=(x,x,...,x)$ with $x^p = 1$.\\
+	  Assume an equivalence class contains the element which is of the form $s=(x,x,...,x)$ with $x^p=1$.\\
+	  Then $l^n(s) = r^n(s) = s$ for any $n \in \bbz$.\\
+	  Thus, the equivalence only contains the single element $s = (x,x,...,x)$.
+	\item
+		
+  \end{enumerate}
+\end{proof}
+
+\begin{exer}[3.3.7]
+Let $M$ and $N$ be normal subgroups of $G$ such that $G=MN$. Prove that $G/(M\cap N)\cong (G/M)\times(G/N)$. 
+\end{exer}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
