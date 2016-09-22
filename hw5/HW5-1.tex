@@ -10,7 +10,7 @@
 
 %\theoremstyle{definition}
 %\newtheorem{exer}{Exercise}
-
+\newcommand{\llo}{\mathcal{O}}
 \newcommand{\bbr}{\mathbb{R}}
 \newcommand{\bbc}{\mathbb{C}}
 \newcommand{\bbz}{\mathbb{Z}}
@@ -167,6 +167,7 @@ Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such 
 		\pi: S &\to S	\\
 		(x_1,x_2,...x_p) &\mapsto (x_p,x_1,...x_{p-1})	
 	\end{align*}
+	Then we define $\pi$ as circular shift operation.\\
 	Since $(x_1,x_2,...x_p) \in G$, $x_1x_2...x_p =1$.\\
 	So $x_px_1x_2...x_{p-1}x_p^{-1} = x_p1 x_p^{-1}$.\\
 	Namely, $x_px_1...x_{p-1} =1$. So $(x_p,x_1,...x_{p-1}) \in S$.\\
@@ -174,9 +175,7 @@ Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such 
 	Hence, a cyclic permutation of an element of $S$ is again an element of $S$.
 	  \item
 		Next we show $\sim $ is an equivalence relation.\\
-		By the definition of $\pi$, we have ${\pi}^p= e_{\pi}$.\\
- 	   	Then there is an unique group monomorphism $\phi_{\pi}: \bbz/n\bbz \to \langle\pi\rangle$ such that $\phi_{\pi}(\bar{1}) = \pi$ according to our homework 3. Then we have $\phi_{\pi}(\bar{n}) = \pi^n$.\\
- 	   	Then we have a group $\langle \pi \rangle$ acting on the set $S$.\\
+ 	   	Then we have a group $G = \langle \pi \rangle$ acting on the set $S$.\\
 		Thus, $\sim $ is an equivalence relation.
 	\item	
 	  Then we show an equivalence class contains a single element if and only if it is of the form $(x,x,...,x)$ with $x^p = 1$.\\
@@ -188,9 +187,31 @@ Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such 
 	  Then it is obvious that $\pi^n(s) = s$ for $1 \leq n \leq p, n\in \bbz$.\\
 	  Thus, the equivalence only contains the single element $s = (x,x,...,x)$.
 	\item
-	  	The orbits of $S$ under the action of $\langle \pi\rangle$ form a partion of $S$.\\
-	  	Let $s\ in S$, then its stabbilizer $$
-
+	   Then we show every equivalence class has order 1 or $p$.
+		Let $G = \langle \pi \rangle$.\\
+		Then $|G|$ = p.
+	  	The orbits of $S$ under the action of $G$ form a partion of $S$.\\
+	  	Let $s\ in S$, then its stabilizer $G_s \leq G$.\\
+	  	So $|G_s| = 1$ or $p$ by Lagrange’s theorem.\\
+	  	Let $\llo(s)$ denote the orbit containing $s$.
+	  	\begin{enumerate}
+	  		\item
+	  		  If $|G_s|= p$, then $G_s = G$. \\
+	  		  So $s = (g,g,...g)$ for some $g \in G$ since $s$ stay the same under all the $\pi,\pi^2,...\pi^p$ circular shift operations.\\
+	  		  By part (d), $\llo(s)$ has order 1.
+	  		  \item
+	  		  	If $|G_s|= 1$, then $G_s = \{e_G\}$. \\
+	  		  	Assume $|\llo(s)| < p$, then $s = \pi^n(s)$ for $1 \leq n \leq p-1$.\\
+	  		  	Then $e_G \neq \pi^q \in G_s$, which is contrdicted by $|G_s| = 1$.\\
+	  		  	So $|\llo(s)| = p$ since $|\llo(s)| \leq p$.
+		\end{enumerate}
+	 Let $k$ be the number of classes of size 1 and $d$ be the number of classes of size $p$.\\
+	 Since $S$ is the disjoint union of its orbits, we have $|S| = |G|^{p-1} = k+pd$.
+	\item 
+	By part(c), we have $\{(1,1,..,1)\}$ is an equivalence class of size 1, and then $k \geq 1$.\\
+	Since $S$ has order divisible by $p$ by part (a), we have $k \geq p \geq 2$.\\
+	So there is another element $x$ different from $(1,1,...,1)$ which has order $p$.\\
+	Then by part (d), we have $x\in S$ is of the form $(x,x,...,x)$ with $x^p = 1$.
   \end{enumerate}
 \end{proof}
 
