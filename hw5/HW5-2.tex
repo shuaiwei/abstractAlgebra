@@ -1,0 +1,147 @@
+\documentclass{amsart}
+
+% PACKAGES
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%\theoremstyle{definition}
+%\newtheorem{exer}{Exercise}
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{conj}[lem]{Conjecture}
+\newtheorem{intthm}{Theorem}
+\renewcommand{\theintthm}{\Alph{intthm}}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{ex}[lem]{Example}
+\newtheorem{question}[lem]{Question}
+\newtheorem{questions}[lem]{Questions}
+\newtheorem{problem}[lem]{Problem}
+\newtheorem{disc}[lem]{Remark}
+\newtheorem{rmk}[lem]{Remark}
+\newtheorem{construction}[lem]{Construction}
+\newtheorem{notn}[lem]{Notation}
+\newtheorem{fact}[lem]{Fact}
+\newtheorem{para}[lem]{}
+\newtheorem{exer}[lem]{Exercise}
+\newtheorem{remarkdefinition}[lem]{Remark/Definition}
+\newtheorem{notation}[lem]{Notation}
+\newtheorem{step}{Step}
+\newtheorem{convention}[lem]{Convention}
+\newtheorem*{Convention}{Convention}
+\newtheorem{assumption}[lem]{Assumption}
+
+\newcommand{\fmn}{F^{m\times n}}
+\newcommand{\fnn}{F^{n\times n}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\Span}{\operatorname{Span}}	
+\newcommand{\rank}{\operatorname{rank}}	
+\begin{document}
+
+\noindent MATH 8510, Abstract Algebra I \\
+Fall 2016\\
+Exercises 5-2\\
+Due date Thu 22 Sep 4:00PM
+
+\
+
+%\noindent
+%Throughout this homework set, let $F$ be a field
+%
+%
+%\
+
+\begin{exer}[3.4.4]
+Let $G$ be a finite abelian group, and let $n$ be a divisor of $|G|$. 
+Use Cauchy's Theorem to show that $G$ has a subgroup of order $n$.
+\begin{proof}
+	\begin{enumerate}[(1)]
+		\item
+		  If $|G|=1$, then $G = \{e_G\}$ and only $1$ is a divisor of $|G|$.\\
+		  So $G$ with order $1$ is a subgroup of $G$.
+		 \item
+		 Consider $1 < |G| < \infty$.\\
+		 We will show it by induction.\\
+		 Since $|G|\geq 1, |G|\in \bbz$, $k$ can be written as $p_1p_2...p_{k_p}$, where $p_1,p_2,...p_{k_p}$ are primes.\\
+		 \begin{enumerate}[(a)]
+		   \item
+             If $|G| = p$ is a prime, then the divisor $n$ can only be $1$ or $p$.\\
+             So when $n = 1$, just let $H = \{e_G\} \leq G$; when $n = p$, we let $H = G\leq G$.\\
+             Namely, it holds for basic case.
+		 	 \item
+		 	  Suppose every group $G$ with $|G|= p_1,p_2,...p_{m}$ has the property that if $n$ is a divisor of $|G|$, then there exists a subgroup $H \leq G$ with $|H|=n$.
+		 	  \item
+				Let $G$ be a group such that $|G|= p_1,p_2,...p_{k_p}p_{m + 1}$. \\
+				If $n=1$, just let $H = {e_G} \leq G$.\\
+				If $n > 1$, then withour loss of generality, we assume $p_1|n$.\\
+				By Cauchy's theorem, there exists $x \in G$ with $|x| = p_1$. \\
+				Since $G$ is abelian, we have $\langle x\rangle$ is normal.\\
+				Then $\langle x\rangle \unlhd G$ since $x\in G$.\\
+				Then $|G/\langle x\rangle| = \frac{|G|}{|\langle x\rangle|} = \frac{p_1,p_2,...p_{m}}{p_1} = p_2,...p_{m+1}$.\\
+				Since $n$ is a divisor of $|G|= p_1,p_2,...p_{k_p      }p_{m + 1}$ and $p_1|d$, then $\frac{n}{p_1}$ is a divisor of $p_2,p_3,...p_{m+1}$.\\
+			   Thus, by assumption, there exists a subgroup $H/\langle x \rangle$ of $G/\langle x \rangle$ with order $|H/\langle x \rangle| = \frac{n}{p_1}$.\\
+			   Besides, by the fourth isomophism theorem, we have $H \leq G$.\\ 
+			   As last, by Lagrange's theorem, we have $|H| = |H/\langle x \rangle||\langle x \rangle|= \frac{n}{p_1} p_1 = n$.\\
+			   Therefore, our assumption also holds for $|G|= p_1,p_2,...p_{k_p}p_{m + 1}$.
+		\end{enumerate}
+		Hence, the claim holds.\\
+  \end{enumerate}
+\end{proof}
+
+\end{exer}
+
+\begin{exer}
+Let $G$ be a finite abelian group, written additively.
+Prove that there is a chain of subgroups $0=N_0\unlhd N_1\unlhd\cdots\unlhd N_k=G$ such that each quotient $N_i/N_{i-1}$ is cyclic of prime order.
+\end{exer}
+
+
+
+\end{document}
+
+
+\begin{exer}
+\begin{enumerate}[(a)]
+\item 
+\end{enumerate}
+\end{exer}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
