@@ -118,7 +118,7 @@ Let $G$ be a group.
   \begin{proof}
 	We first show that if $H$ is a group and $|H| = p$, where $p$ is a prime, then $G$ is cyclic.\\
 	Let $x \in H$ and $x \neq 1$, then $|x| \neq 1$ and $|x| \mid |H|$.\\
-	So $|x| = p$ and then $langle x\rangle = H$. \\
+	So $|x| = p$ and then $\langle x\rangle = H$. \\
 	Thus, $H$ is cyclic.\\
 	Since $Z(G) \leq G$, $Z(G)| \mid |G|$.\\
 	Given $|G| =pq$ and $p,q$ are primes, we have
@@ -164,47 +164,33 @@ Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such 
   	$\forall s = (x_1,x_2,...x_p) \in S$, we have $x_1x_2...x_p = 1$.\\
 	Define 
 	\begin{align*}
-		r: S &\to S	\\
+		\pi: S &\to S	\\
 		(x_1,x_2,...x_p) &\mapsto (x_p,x_1,...x_{p-1})	
 	\end{align*}
 	Since $(x_1,x_2,...x_p) \in G$, $x_1x_2...x_p =1$.\\
 	So $x_px_1x_2...x_{p-1}x_p^{-1} = x_p1 x_p^{-1}$.\\
 	Namely, $x_px_1...x_{p-1} =1$. So $(x_p,x_1,...x_{p-1}) \in S$.\\
-	Thus, $f$ is well-defined.\\
-	Similarly, define
-	\begin{align*}
-		l: S &\to S	\\
-		(x_1,x_2,...x_p) &\mapsto (x_2,x_3...x_{p},x_1)	
-	\end{align*}
-	which is well-defined.\\
+	Thus, $\pi$ is well-defined.\\
 	Hence, a cyclic permutation of an element of $S$ is again an element of $S$.
 	  \item
 		Next we show $\sim $ is an equivalence relation.\\
-		\begin{enumerate}[(a)]
-		\item
-		By the definition of $r$ and $l$, we have $r^p = e_r$ and $l^p =e_l$. \\
-	Then $\forall s \in S, r^p(s) = e_r(s) = s$. \\
-	So $s \sim s$.
-  		\item
-	$\forall s,t \in S$,if $s\sim t$, without loss of generality, assume $s=r^n(t)$ for some $n\in \bbz$. Then $t=l^n(s)$. As a result, $t\sim s$.  
-	  	\item
-		Let $s,t,v \in G$ and $r \sim s$ and $s~t$.\\
-		Without loss of generality, assume $s = r^m(t)$ and $t = l^n(v)$ for some $m,n\in \bbz$.\\
-		Then $s = r^m(l^n(v)) = r^{m-n}(v)$ if $m \geq n$ or $s = l^{n-m}(v)$ if $m < n$.\\
-		So $s \sim v$.
-	  	\end{enumerate}
+		By the definition of $\pi$, we have ${\pi}^p= e_{\pi}$.\\
+ 	   	Then there is an unique group monomorphism $\phi_{\pi}: \bbz/n\bbz \to \langle\pi\rangle$ such that $\phi_{\pi}(\bar{1}) = \pi$ according to our homework 3. Then we have $\phi_{\pi}(\bar{n}) = \pi^n$.\\
+ 	   	Then we have a group $\langle \pi \rangle$ acting on the set $S$.\\
 		Thus, $\sim $ is an equivalence relation.
 	\item	
 	  Then we show an equivalence class contains a single element if and only if it is of the form $(x,x,...,x)$ with $x^p = 1$.\\
 	  Assume an equivalence class contains a single element $s=(x_1,x_2,...,x_p)$ with $x_1x_2...x_p=1$.\\
-	  Then $s= l(s) = l^2(s) = ...=l^{p-1}(s)$.\\
-	  Look at the first element of $s,l(s),l^{p-1}(s)$, we have $x_1=x_2=...=x_p$.\\
+	  Then $\pi= \pi(s) = \pi^2(s) = ...=\pi^{p-1}(s)$.\\
+	  Look at the first element of all the elements $s,\pi(s),\pi^{p-1}(s)$, we have $x_1=x_2=...=x_p$.\\
 	  Therefore, such a element is of the form $s=(x,x,...,x)$ with $x^p = 1$.\\
 	  Assume an equivalence class contains the element which is of the form $s=(x,x,...,x)$ with $x^p=1$.\\
-	  Then $l^n(s) = r^n(s) = s$ for any $n \in \bbz$.\\
+	  Then it is obvious that $\pi^n(s) = s$ for $1 \leq n \leq p, n\in \bbz$.\\
 	  Thus, the equivalence only contains the single element $s = (x,x,...,x)$.
 	\item
-		
+	  	The orbits of $S$ under the action of $\langle \pi\rangle$ form a partion of $S$.\\
+	  	Let $s\ in S$, then its stabbilizer $$
+
   \end{enumerate}
 \end{proof}
 
