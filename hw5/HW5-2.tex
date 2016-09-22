@@ -87,12 +87,12 @@ Use Cauchy's Theorem to show that $G$ has a subgroup of order $n$.
 		 \item
 		 Consider $1 < |G| < \infty$.\\
 		 We will show it by induction.\\
-		 Since $|G|\geq 1, |G|\in \bbz$, $k$ can be written as $p_1p_2...p_{k_p}$, where $p_1,p_2,...p_{k_p}$ are primes.\\
+		 Since $|G|\geq 1, |G|\in \bbz$, $|G|$ can be written as $p_1p_2...p_{k_p}$, where $p_1,p_2,...p_{k_p}$ are primes.
 		 \begin{enumerate}[(a)]
 		   \item
              If $|G| = p$ is a prime, then the divisor $n$ can only be $1$ or $p$.\\
              So when $n = 1$, just let $H = \{e_G\} \leq G$; when $n = p$, we let $H = G\leq G$.\\
-             Namely, it holds for basic case.
+             Namely, it holds for the basic case.
 		 	 \item
 		 	  Suppose every group $G$ with $|G|= p_1,p_2,...p_{m}$ has the property that if $n$ is a divisor of $|G|$, then there exists a subgroup $H \leq G$ with $|H|=n$.
 		 	  \item
@@ -118,6 +118,28 @@ Use Cauchy's Theorem to show that $G$ has a subgroup of order $n$.
 \begin{exer}
 Let $G$ be a finite abelian group, written additively.
 Prove that there is a chain of subgroups $0=N_0\unlhd N_1\unlhd\cdots\unlhd N_k=G$ such that each quotient $N_i/N_{i-1}$ is cyclic of prime order.
+\begin{proof}
+	Since $G$ is a finite group, then by Jordan-H\"{o}lder theorem, $G$ has a composition series.\\
+	Namely, there is a chain of subgroups $0= N_0 \unlhd N_1 \unlhd...\unlhd N_k = G$.\\
+	Then we show $N_n/N_{n-1}, n = 1,2,..k$ are abelian. \\
+  	Let $gN_{n-1}, hN_{n-1} \in N_n/N_{n-1}$, where $g,h \in N_n$.\\
+  	Since $N_{n-1} \unlhd N_{n} \unlhd G$ for $n = 1,2,...k$ and $G$ is abelian,\\
+  	\begin{align*}
+  	  gN_{n-1}hN_{n-1} &= ghN_{n-1} \\
+  	  				&= hgN_{n-1}\\
+  	  				&=hN_{n-1}gN_{n-1}
+  	\end{align*}
+  	So $N_n/N_{n-1}, n = 1,2,..k$ are abelian.\\
+	Assume there exsit $n \in \bbz$ and $1 \leq n \leq k$ such that $N_n/N_{n-1}$ is of prime order.\\
+	Then $|N_n/N_{n-1}| = p_1p_2..p_m$, where $p_1,p_2,...,p_m$ are pimes and $ 1< m < \infty, m \in \bbz$.\\
+	By Exercise 1, we know there exists $H \leq N_n/N_{n-1}$ with order $|H|=p_1$. \\
+	Since $|\{e_{N_n/N_{n-1}}\}|1 < p_1 < m = |N_n/N_{n-1}|$.\\
+	Thus, ${e_{e_{N_n/N_{n-1}}}} \leq H \leq N_n/N_{n-1}$.\\ 
+	So we have $N_n/N_{n-1}$ is not simple, which is contradicted by the chain $0=N_0\unlhd N_1\unlhd\cdots\unlhd N_k=G$ is a composition series.\\
+	Therefore, each quotient $N_i/N_{i-1}$ for $i=1,2,..,n$ is of prime order.\\
+	We have shown in Exercise 1(b) of homework 5-1, that $G$ is cyclic if the order of $p$ is a prime.\\
+	As a result, each quotient $N_i/N_{i-1}$ for $i=1,2,..,n$ is of prime order
+ \end{proof}
 \end{exer}
 
 
@@ -125,11 +147,6 @@ Prove that there is a chain of subgroups $0=N_0\unlhd N_1\unlhd\cdots\unlhd N_k=
 \end{document}
 
 
-\begin{exer}
-\begin{enumerate}[(a)]
-\item 
-\end{enumerate}
-\end{exer}
 
 
 
