@@ -217,6 +217,40 @@ Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such 
 
 \begin{exer}[3.3.7]
 Let $M$ and $N$ be normal subgroups of $G$ such that $G=MN$. Prove that $G/(M\cap N)\cong (G/M)\times(G/N)$. 
+\begin{proof}
+	Define $f$ as 
+	\begin{align*}
+	  f: G &\to (G/M) \times (G/N) \\
+	  			g &\mapsto (gM, gN)
+	\end{align*}
+	$\forall g,h \in G$, 
+	\[ f(gh) = (ghM, ghN) = (gMhM, gNhN) = (gM,gN)(hM, hN) \]
+	So $f$ is a homomorphism.\\
+	\begin{align*}
+		g \in \ker(f) &\Leftrightarrow f(g) = (M,N),~\forall g \in G \\
+	  	&\Leftrightarrow  (gM, gN) = (M,N), ~\forall g \in G\\
+	  &\Leftrightarrow gM = M \text{ and } gN = N,~\forall g \in G\\
+	  &\Leftrightarrow g \in M \text{ and } g\in N,~\forall g \in G\\
+	  &\Leftrightarrow g \in M\cap N,~\forall g \in G
+  	\end{align*}
+  	So 
+  	\[\ker(f) = M \cap N.\]
+  	Let $(gM,hN) \in (G/M) \times (G/N)$, then there exist $m_1,m_2 \in M$, $n_1,n_2 \in N$ such that $g= m_1n_1$ and $h=m_2n_2$ since $G = MN$.\\
+	Since $M \unlhd G$ and $N \unlhd G$,
+	\begin{align*}
+	  (gM,hN) & = (m_1n_1M,m_2n_2N)\\
+	  		 	  	 &=(n_1n_1^{-1})m_1n_1M, m_2n_2(m_2^{-1}m_2)N) \\
+	  			 	   &=n_1(n_1^{-1}m_1n_1)M, (m_2n_2m_2^{-1})Nm_2)\\
+	  			 	  &=(n_1M, Nm_2)\\
+	  				&=(n_1M, m_2N)\\
+	  				&= (n_1(n_1^{-1}m_2n_1)M, m_2n_1N) \\
+	  				&=(m_2n_1M,m_2n_1N)\\
+	  				&=f(m_2M, n_1N).
+	\end{align*}
+	So $f$ is onto. Namely, $\im(f) = (G/M) \times (G/N)$.\\
+	Thus, by the first isomorphism theorem, we have
+	\[ G/(M\cap N)\cong (G/M)\times(G/N). \]
+\end{proof}
 \end{exer}
 
 \end{document}
