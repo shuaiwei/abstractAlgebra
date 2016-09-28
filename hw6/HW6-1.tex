@@ -1,0 +1,195 @@
+\documentclass{amsart}
+
+% PACKAGES
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%\theoremstyle{definition}
+%\newtheorem{exer}{Exercise}
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{conj}[lem]{Conjecture}
+\newtheorem{intthm}{Theorem}
+\renewcommand{\theintthm}{\Alph{intthm}}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{ex}[lem]{Example}
+\newtheorem{question}[lem]{Question}
+\newtheorem{questions}[lem]{Questions}
+\newtheorem{problem}[lem]{Problem}
+\newtheorem{disc}[lem]{Remark}
+\newtheorem{rmk}[lem]{Remark}
+\newtheorem{construction}[lem]{Construction}
+\newtheorem{notn}[lem]{Notation}
+\newtheorem{fact}[lem]{Fact}
+\newtheorem{para}[lem]{}
+\newtheorem{exer}[lem]{Exercise}
+\newtheorem{remarkdefinition}[lem]{Remark/Definition}
+\newtheorem{notation}[lem]{Notation}
+\newtheorem{step}{Step}
+\newtheorem{convention}[lem]{Convention}
+\newtheorem*{Convention}{Convention}
+\newtheorem{assumption}[lem]{Assumption}
+
+\newcommand{\fmn}{F^{m\times n}}
+\newcommand{\fnn}{F^{n\times n}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\Span}{\operatorname{Span}}	
+\newcommand{\rank}{\operatorname{rank}}	
+\newcommand{\OO}[1]{\mathcal{O}_{#1}}
+\begin{document}
+
+\noindent MATH 8510, Abstract Algebra I \\
+Fall 2016\\
+Exercises 6-1\\
+Due date Thu 29 Sep 4:00PM
+
+\
+
+%\noindent
+%Throughout this homework set, let $F$ be a field
+%
+%
+%\
+
+\begin{exer}[3.5.10]
+Consider the alternating group $A_4$.
+Prove that there is a chain of normal subgroups $\{(1)\}N_0\unlhd N_1\unlhd\cdots\unlhd N_k=A_4$ such that each quotient $N_i/N_{i-1}$ is abelian.
+(This says that $A_4$ is \emph{solvable}.)
+
+\
+
+\noindent
+Hint: 
+Set $N=\{(1),(1\ 2)(3\ 4),(1\ 3)(2\ 4),(1\ 4)(2\ 3)\}\subseteq A_4$, and prove the following:
+\begin{enumerate}[(a)]
+\item 
+Prove that $N\leq A_4$. 
+
+\begin{proof}
+  \begin{enumerate}[(i)]
+	  \item It is obvious $N \subseteq A_4$
+	  \item $N$ is not empty since $e_{A_4} = (1) \in N$.
+	  \item Since $N=\{(1), (1~ 2)(3~ 4),(1~ 3)(2~ 4),(1~ 4)(2~ 3)\}$, \\
+	  	$\left((1~ 2)(3~ 4)\right)\left((1~ 3)(2~ 4)\right) = (1~ 4)(2~ 3) \in N$, and \\
+	  	$\left((1~ 2)(3~ 4)\right)\left((1~ 4)(2~ 3)\right) = (1~ 3)(2~ 4)\in N$, and\\
+	  	$\left((1~ 3)(2~ 4)\right)\left((1~ 4)(2~ 3)\right) = (1~ 2)(3~ 4)\in N$.\\
+		Similarly, \\
+	  	$\left((1~ 3)(2~ 4)\right)\left((1~ 2)(3~ 4)\right) = (1~ 4)(2~ 3) \in N$, and \\
+	  	$\left((1~ 4)(2~ 3)\right)\left((1~ 2)(3~ 4)\right) = (1~ 3)(2~ 4)\in N$, and\\
+	  	$\left((1~ 4)(2~ 3)\right)\left((1~ 3)(2~ 4)\right) = (1~ 2)(3~ 4)\in N$.\\
+	  	So $N$ is abelian.
+	  \item $\left((1~ 2)(3~ 4)\right)\left((1~ 2)(3~ 4)\right) = (1) \in N$.\\
+			$\left((1~ 3)(2~ 4)\right)\left((1~ 3)(2~ 4)\right) = (1) \in N$.\\
+				$\left((1~ 4)(2~ 3)\right)\left((1~ 4)(2~ 3)\right) = (1) \in N$.\\
+		So the inverses of $(1~ 2)(3~ 4),(1~ 3)(2~ 4)$ and $(1~ 4)(2~ 3)$ are themselves, respectively, which are in $N$.
+	\end{enumerate}
+	Thus, $N$ is a subgroup of $A_4$
+\end{proof}
+
+\item 
+Prove that $N\smallsetminus\{(1)\}=\{\tau\in A_4\mid|\tau|=2\}$.
+\begin{proof}
+  Let $D = \{(a~b~c),a,b,c \in \{1,2,3,4\}, a\neq b\neq c\}$. \\
+  Then $D \subsetneq A_4$ since $(a~b~c) = (a~c)(a~b)$.\\
+  We have $(a~b~c)(a~b~c) = (a~c~b)$ and $(a~b~c)(a~b~c)(a~b~c) = (1)$, so $|(a~b~c)| = 3$. \\
+  Beside, we have $|D| = \frac{4!}{3} = 8$. \\
+  Since $|N| + D = 12 = |A_4|$ and $N \cap D = \emptyset $,\\
+  $A_4 = N \cup D$.\\
+  So we know all the elements with order 2 are in $A_4$. \\
+  Moreover, all elements in $A_4$ has order 2 except element $(1)$.
+  Thus,
+  \[ N \smallsetminus \{(1)\} = \{\tau \in A_4~\mid~ |\tau| = 2\} .  \] 
+
+\end{proof}
+
+\item 
+Prove that for all $\sigma\in A_4$, for all $\tau\in N\smallsetminus\{(1)\}$, the element $\sigma\tau\sigma^{-1}$ has order 2, so it is in $N$. 
+
+\begin{proof}
+  For all $\tau\in N\smallsetminus\{(1)\}$, we have $\tau \tau = (1)$ since the order of the elment of $N\smallsetminus\{(1)\}$ is 2.\\
+  For all $\sigma\in A_4$, $\tau\in N\smallsetminus\{(1)\}$,
+  \begin{align*}
+  	(\sigma\tau\sigma^{-1})(\sigma\tau\sigma^{-1}) &= \sigma\tau\tau\sigma^{-1} \\
+  												   &= \sigma(1)\sigma^{-1} \\
+  												   &= (1).
+  \end{align*}
+  	So the element $\sigma\tau\sigma^{-1}$ has order 2, and then $\sigma\tau\sigma^{-1} \in N$.\\
+  	Thus, $N\unlhd A_4$.\\
+	Since $|A_4/N| = \frac{|A_4|}{N} = 3$ by Lagrange Theorem, $A_4/N$ is simple and cyclic.\\
+	Then $A_4/N$ is abelian.\\
+	As a result, we have a trivial chain $N \unlhd A_4$.\\
+  	Since $|N| = 4$, by Jordan-H\"older theorem, there is a chain of subgroups 
+  	\[ \{(1)\} = N_0 \unlhd N_1...\unlhd N_k = N.\] 
+  	$N$ is abelian by part (i), so $N_0,N_1, ..., N_{k-1}$ are also abelian since they are subgroups of $N$.\\ 
+  	Thus, $N_1/N_0,N_2/N_1..,N/N_{n-1}$ are abelian.\\
+	Combine the chain $\{(1)\} = N_0 \unlhd N_1...\unlhd N_k = N$ with the chain $A_4 \unlhd N$,\\
+	we get a new chain
+	\[  N_0 \unlhd N_1...\unlhd  N \unlhd A_4,\]
+	where $N_1/N_0, N_2/N_1..,N/N_{k-1}, A_4/N$ are abelian.
+ \end{proof}
+  	
+\end{enumerate}
+\end{exer}
+
+\begin{exer}[4.1.9]
+Assume that $G$ acts transitively on a finite set $A$, and let $H\unlhd G$.
+Note that $H$ also acts on $A$. 
+Let $\OO{1}, \OO 2,\ldots,\OO r$ be the distinct orbits of $H$ on $A$
+\begin{enumerate}[(a)]
+\item Prove that $G$ permutes the sets $\OO{1}, \OO 2,\ldots,\OO r$ in the sense that for each $g\in G$
+and each $i\in[r]=\{1,\ldots,r\}$, there is a $j$ such that $g\OO i=\OO j$ where $g\OO{}=\{ga\in G\mid a\in\OO{}\}$.
+Prove that $G$ acts transitively on $\{\OO{1}, \OO 2,\ldots,\OO r\}$. Deduce that all orbits of $H$ on $A$ have the same cardinality.
+\item
+Prove that if $a\in\OO 1$, then $|\OO 1|=[H\colon H\cap G_a]$, and prove that $r=[G\colon HG_a]$. 
+\end{enumerate}
+\end{exer}
+
+\end{document}
+
+
+\begin{exer}
+\begin{enumerate}[(a)]
+\item 
+\end{enumerate}
+\end{exer}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

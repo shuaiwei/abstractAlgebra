@@ -66,7 +66,7 @@
 Fall 2016\\
 Exercises 5-1\\
 Shuai Wei\\
-
+Collaborator: Xiaoyuan Liu
 \
 
 %\noindent
@@ -81,16 +81,16 @@ Let $G$ be a group.
 \item (3.1.36) Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian. (See the hint in the text.)
   \begin{proof}	
 	At first, we show $Z(G) \unlhd G$.\\
-	We already know $Z(G) \leq G$. Besies, since\\
-	$\forall g \in G, z \in Z(G) , gz = zg$ by the definition of $Z(G)$,
+	We already know $Z(G) \leq G$.\\
+	Besies, since $\forall g \in G, z \in Z(G) , gz = zg$ by the definition of $Z(G)$,
    	\[ gzg^{-1} = zgg^{-1} = z \in Z(G), \forall g\in G, z\in Z(G) \] 
 	Thus,
 	\[Z(G) \unlhd G.\]
-	Since $G/Z(G)$ is cyclic, there exist $x \in G$ such that $G/Z(G) =\langle xZ(G) \rangle$.\\
 	Next we show every element of $G$ can be written in the form $x^az$ for some integer $a\in Z$ and some element $z \in Z(G)$.\\
-	Then $\forall g \in G$, there exists $n \in \bbz$ such that
+	Since $G/Z(G)$ is cyclic, there exist $x \in G$ such that $G/Z(G) =\langle xZ(G) \rangle$.\\
+	$\forall g \in G$, $gZ(G) \in G/Z(G)$, so there exists some $n \in \bbz$ such that
   	\[gZ(G) = \big(xZ(G)\big)^n = x^nZ(G) \]
-	since $Z(G) \unlhd G $.\\
+	using $Z(G) \unlhd G $.\\
 	Then 
 	\[(x^n)^{-1}g \in Z(G).\]
 	So there exists $z \in Z(G)$ such that
@@ -110,6 +110,7 @@ Let $G$ be a group.
 			&=x^nzx^my\\
 			&=hg
   	 \end{align*}
+	since $y, z \in Z(G)$.\\
 	So $G$ is abelian.
 	
   \end{proof}  	  
@@ -122,7 +123,7 @@ Let $G$ be a group.
 	Thus, $H$ is cyclic.\\
 	Since $Z(G) \leq G$, $Z(G)| \mid |G|$.\\
 	Given $|G| =pq$ and $p,q$ are primes, we have
-	$|Z(G)| = 1$ or $p$, $q$ or $pq$.\\
+	$|Z(G)| = 1$ or $p$, $q$ or $pq$.
 	\begin{enumerate}[(i)]
 	  \item If $|Z(G)| = 1$, then $Z(G) = \{e\}$.
 	  \item If $|Z(G)| = pq$, we know $Z(G) \leq G$ and then $Z(G) = G$.\\ 
@@ -134,11 +135,11 @@ Let $G$ be a group.
 		If $|Z(G)| = p$, we have 
 		\[|G/Z(G)| = \frac{|G|}{|Z(G)|} = q.\]
 		Since q is a prime, $G/Z(G)$ is cyclic by the previous proof.\\
-		Thus, $G$ is abelian according to part (a).
+		Thus, $G$ is abelian according to problem (a).
  	  \item 
 		If $|Z(G)| = q$, follow the similar process as (iii), we have $G$ is abelian.
 	\end{enumerate}
-		In summary, if $|G| = pq$ where $p,q$ are primes, then either $G$ is abelian or $Z(G) = {e}$.
+		In summary, if $|G| = pq$ where $p,q$ are primes, then either $G$ is abelian or $Z(G) = \{e\}$.
 
   \end{proof}
 
@@ -156,7 +157,7 @@ Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such 
 	\begin{enumerate}
 	  \item
 		At first, we show $|S|= |G|^{p-1}$.\\
- 	    Let $x_i, i = 1,2,...p-1$ be any element of $G$, then $x_p = x_1^{-1}x_2^{-1}...x_{p-1}^{-1}$. \\
+ 	    Let $s =(x_1,x_2,...x_p) \in S$ and $x_i, i = 1,2,...p-1$ be any element of $G$, then $x_p = x_{p-1}^{-1}x_{p-2}^{-1}...x_1^{-1}$. \\
 		Namely, $x_i,i = 1,2,...p-1$ has $|G|$ choices each, and then $x_p$ only has one. So $|S| = |G|^{p-1}$.	\\
 		Define a relation $\sim $ on $S$ by letting $\alpha \sim \beta$ if $\beta$ is a cyclic permutation of $\alpha$.
 	  \item
@@ -169,19 +170,19 @@ Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such 
 	\end{align*}
 	Then we define $\pi$ as circular shift operation.\\
 	Since $(x_1,x_2,...x_p) \in G$, $x_1x_2...x_p =1$.\\
-	So $x_px_1x_2...x_{p-1}x_p^{-1} = x_p1 x_p^{-1}$.\\
+	So $x_px_1x_2...x_{p-1}x_px_p^{-1} = x_p1 x_p^{-1}$.\\
 	Namely, $x_px_1...x_{p-1} =1$. So $(x_p,x_1,...x_{p-1}) \in S$.\\
 	Thus, $\pi$ is well-defined.\\
 	Hence, a cyclic permutation of an element of $S$ is again an element of $S$.
 	  \item
 		Next we show $\sim $ is an equivalence relation.\\
  	   	Then we have a group $G = \langle \pi \rangle$ acting on the set $S$.\\
-		Thus, $\sim $ is an equivalence relation.
+		Thus, it is obvious $\sim $ is an equivalence relation.
 	\item	
 	  Then we show an equivalence class contains a single element if and only if it is of the form $(x,x,...,x)$ with $x^p = 1$.\\
 	  Assume an equivalence class contains a single element $s=(x_1,x_2,...,x_p)$ with $x_1x_2...x_p=1$.\\
 	  Then $\pi= \pi(s) = \pi^2(s) = ...=\pi^{p-1}(s)$.\\
-	  Look at the first element of all the elements $s,\pi(s),\pi^{p-1}(s)$, we have $x_1=x_2=...=x_p$.\\
+	  Look at the first element of all the elements $s,\pi(s),...,\pi^{p-1}(s)$, we have $x_1=x_2=...=x_p$.\\
 	  Therefore, such a element is of the form $s=(x,x,...,x)$ with $x^p = 1$.\\
 	  Assume an equivalence class contains the element which is of the form $s=(x,x,...,x)$ with $x^p=1$.\\
 	  Then it is obvious that $\pi^n(s) = s$ for $1 \leq n \leq p, n\in \bbz$.\\
@@ -191,18 +192,18 @@ Prove Cauchy's Theorem: If $G$ is a finite group and $p$ is a prime number such 
 		Let $G = \langle \pi \rangle$.\\
 		Then $|G|$ = p.
 	  	The orbits of $S$ under the action of $G$ form a partion of $S$.\\
-	  	Let $s\ in S$, then its stabilizer $G_s \leq G$.\\
-	  	So $|G_s| = 1$ or $p$ by Lagrange’s theorem.\\
+	  	Let $s\in S$, then its stabilizer $G_s \leq G$.\\
+	  	So $|G_s| = 1$ or $p$ by Lagrange's theorem.\\
 	  	Let $\llo(s)$ denote the orbit containing $s$.
 	  	\begin{enumerate}
 	  		\item
 	  		  If $|G_s|= p$, then $G_s = G$. \\
-	  		  So $s = (g,g,...g)$ for some $g \in G$ since $s$ stay the same under all the $\pi,\pi^2,...\pi^p$ circular shift operations.\\
+	  		  So $s = (g,g,...g)$ for some $g \in G$ since $s$ stays the same under all the $\pi,\pi^2,...\pi^p$ circular shift operations.\\
 	  		  By part (d), $\llo(s)$ has order 1.
 	  		  \item
 	  		  	If $|G_s|= 1$, then $G_s = \{e_G\}$. \\
-	  		  	Assume $|\llo(s)| < p$, then $s = \pi^n(s)$ for $1 \leq n \leq p-1$.\\
-	  		  	Then $e_G \neq \pi^q \in G_s$, which is contrdicted by $|G_s| = 1$.\\
+	  		  	Assume $|\llo(s)| < p$, then there exists some $n \in \bbz$ and $1 \leq n \leq p-1$ such that $s = \pi^n(s)$.\\
+	  		  	Then $e_G \neq \pi^n \in G_s$, which is contrdicted by $|G_s| = 1$.\\
 	  		  	So $|\llo(s)| = p$ since $|\llo(s)| \leq p$.
 		\end{enumerate}
 	 Let $k$ be the number of classes of size 1 and $d$ be the number of classes of size $p$.\\
@@ -245,7 +246,7 @@ Let $M$ and $N$ be normal subgroups of $G$ such that $G=MN$. Prove that $G/(M\ca
 	  				&=(n_1M, m_2N)\\
 	  				&= (n_1(n_1^{-1}m_2n_1)M, m_2n_1N) \\
 	  				&=(m_2n_1M,m_2n_1N)\\
-	  				&=f(m_2M, n_1N).
+	  				&=f(m_2n_1).
 	\end{align*}
 	So $f$ is onto. Namely, $\im(f) = (G/M) \times (G/N)$.\\
 	Thus, by the first isomorphism theorem, we have

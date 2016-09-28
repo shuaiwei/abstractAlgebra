@@ -87,7 +87,7 @@ Use Cauchy's Theorem to show that $G$ has a subgroup of order $n$.
 		 \item
 		 Consider $1 < |G| < \infty$.\\
 		 We will show it by induction.\\
-		 Since $|G|\geq 1, |G|\in \bbz$, $|G|$ can be written as $p_1p_2...p_{k_p}$, where $p_1,p_2,...p_{k_p}$ are primes.
+		 Since $|G|\geq 1 and |G|\in \bbn$, $|G|$ can be written as $p_1p_2...p_{k_p}$, where $p_1,p_2,...p_{k_p}$ are primes.
 		 \begin{enumerate}[(a)]
 		   \item
              If $|G| = p$ is a prime, then the divisor $n$ can only be $1$ or $p$.\\
@@ -131,9 +131,9 @@ Prove that there is a chain of subgroups $0=N_0\unlhd N_1\unlhd\cdots\unlhd N_k=
   	\end{align*}
   	So $N_n/N_{n-1}, n = 1,2,..k$ are abelian.\\
 	Assume there exsit $n \in \bbz$ and $1 \leq n \leq k$ such that $N_n/N_{n-1}$ is of prime order.\\
-	Then $|N_n/N_{n-1}| = p_1p_2..p_m$, where $p_1,p_2,...,p_m$ are pimes and $ 1< m < \infty, m \in \bbz$.\\
+	Then $|N_n/N_{n-1}| = p_1p_2..p_m$, where $p_1,p_2,...,p_m$ are primes and $ 1< m < \infty, m \in \bbn$.\\
 	By Exercise 1, we know there exists $H \leq N_n/N_{n-1}$ with order $|H|=p_1$. \\
-	Since $|\{e_{N_n/N_{n-1}}\}|1 < p_1 < m = |N_n/N_{n-1}|$.\\
+	Since $|\{e_{N_n/N_{n-1}}\}|=1 < p_1 < m = |N_n/N_{n-1}|$.\\
 	Thus, ${e_{e_{N_n/N_{n-1}}}} \leq H \leq N_n/N_{n-1}$.\\ 
 	So we have $N_n/N_{n-1}$ is not simple, which is contradicted by the chain $0=N_0\unlhd N_1\unlhd\cdots\unlhd N_k=G$ is a composition series.\\
 	Therefore, each quotient $N_i/N_{i-1}$ for $i=1,2,..,n$ is of prime order.\\
