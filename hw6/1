@@ -180,92 +180,32 @@ Prove that $G$ acts transitively on $\{\OO{1}, \OO 2,\ldots,\OO r\}$. Deduce tha
   \begin{align*}
   	 g\OO i  & = \{h(g \cdot a_i) \in A \mid h \in H\} \\
   	 		 & = \{ha_j \in A \mid h \in H\} \\
-  			 & = \OO j 
+  			 & = \OO j \\
   \end{align*}
   Next we show $G$ acts transitively on $\{\OO 1,\OO 2,\ldots,\OO r\}$.\\
-  We already know for each $i\in [r] = \{1,\ldots,r\}$, there exists $a_i \in A$ such that $\OO{i} = H\cdot a_i = \{h\cdot a_i\in A \mid h\in H\}$.\\
-  Since $G$ acts transitively on $A$, for any $j \in [r]$, there exists $g_j \in G$ such that $a_j = g_ja_1$. \\
-  So for any $\OO j \in \{\OO 1,\OO 2,\ldots,\OO r\}$, there exists $g_j \in G$ such that
-  \begin{align*}
-  		\OO j &= \{h\cdot a_j \in A \mid h\in H\} \\
-			  &= \{h \cdot g_ja_1 \in A \mid h \in H \}\\
-	    	  &= \{g_j h \cdot a_1 \in A\ \mid h \in H \}\\
-			  &=g_j \{h\cdot a_1\in A \mid h\in H\} \\
-	          &=g_j \OO 1
-  \end{align*}
- Therefore, $G$ acts transitively on $\{\OO 1,\OO 2,\ldots,\OO r\}$.\\
- Since $\OO j = g_j \OO 1$ for any $j \in [r]$,\\
- we have for any $j \in [r]$,
- \[|\OO j| = |g_j \OO 1| = |\OO1|.\]
- Thus, we conclude that all orbits of H on A have the same cardinality.
+
+  For all $\OO i \in \{\OO 1,\OO 2,\ldots,\OO r\}, i \in [r]$, there exists some $ij \in [r]$ such that $g\OO {i} = \OO {ij}$.\\
+  So 
+  \[ g\{\OO 1,\OO 2,\ldots,\OO r\} = \{ \OO {1j},\OO {2j},\ldots,\OO {rj}\}. \]
+
+
+
 \end{proof}
 
 
 \item
 Prove that if $a\in\OO 1$, then $|\OO 1|=[H\colon H\cap G_a]$, and prove that $r=[G\colon HG_a]$. 
-\begin{proof}
-We claim $H\cap G_a$ is the stablier of $a$ in H, namely, $H_a = H \cap G_a$.\\
-\begin{enumerate}
-	\item
-Let $s \in H \cap G_a$, then $s \in H$ and $sa = a$ since $s \in G_a$.\\
-So $s \in H_a$. \\
-As are result, $H \cap G_a \subset H_a$.
-\item
-Let $h \in H_a$, then $h \in H$ and $ha = a$.\\
-So $h \in G_a$ since $h \in H_a \subset H \unlhd G$.\\
-Thus, $h \in H \cap G_a$.\\
-Then $H_a \subset H \cap G_a$.
-\end{enumerate}
-Therefore, $H_a =H \cap G_a$.\\
-Since $\OO{1}$ is one of the orbits of $H$ on $A$,\\
-given $a \in \OO 1$, we have 
-\begin{align*}
-  |\OO 1| &= |\OO a|\\ 
-  		 	  	&= [H:H_a] \\
-  			 	&=[H:H\cap G_a]
-\end{align*}
-Then we will show $r=[G:HG_a]$. \\
-Since $G\leq H$ and $G_a\leq G$, we have 
-\begin{align*}
- 	|HG_a| &= \frac{|H||G_a|}{|H\cap G_a|} \\
-  		   	 &= \frac{|H||G_a|}{|H_a|} 
-\end{align*}
-Then 
-\begin{align*}
-  [G:HG_a] &= \frac{|G|}{|HG_a|} \\
-  		   &= \frac{|G||H_a|}{|H||G_a|} \\
-\end{align*}
-We have shown $|\OO 1|  = [H:H_a]$, so $|H|=|H_a||\OO 1|$.\\
-Then
-\begin{align*}
-  [G:HG_a] &= \frac{|G|}{|G_a||\OO 1|} \\
-\end{align*}
-We kown all orbits of $H$ on $A$ have the same cardinality. \\
-So $r|\OO 1| = |A|$.\\
-Then 
-\begin{align*}
-  [G:HG_a] &= \frac{|G|}{|G_a||A|}r 
-\end{align*}
-Since G acts transitively on A, for $a \in A$.
-\[A = G\cdot a.\]
-Then 
-\begin{align*}
- 	|A| &= |G\cdot a|\\
-  		  &= [G:G_a] \\
-  		&= \frac{|G|}{|G_a|}
-\end{align*}
-according to we showed in class.\\
-Then 
-\[ [G:HG_a] = \frac{|G|||G_a}{|G_a||G|}r = r.\]
-Namely, 
-\[ r = [G:HG_a]\]
-\end{proof}
 \end{enumerate}
 \end{exer}
 
 \end{document}
 
 
+\begin{exer}
+\begin{enumerate}[(a)]
+\item 
+\end{enumerate}
+\end{exer}
 
 
 

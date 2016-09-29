@@ -1,0 +1,191 @@
+\documentclass{amsart}
+
+% PACKAGES
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,enumerate}
+\usepackage{amsthm,stmaryrd}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+
+%\theoremstyle{definition}
+%\newtheorem{exer}{Exercise}
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\wti}{\widetilde}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{conj}[lem]{Conjecture}
+\newtheorem{intthm}{Theorem}
+\renewcommand{\theintthm}{\Alph{intthm}}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{ex}[lem]{Example}
+\newtheorem{question}[lem]{Question}
+\newtheorem{questions}[lem]{Questions}
+\newtheorem{problem}[lem]{Problem}
+\newtheorem{disc}[lem]{Remark}
+\newtheorem{rmk}[lem]{Remark}
+\newtheorem{construction}[lem]{Construction}
+\newtheorem{notn}[lem]{Notation}
+\newtheorem{fact}[lem]{Fact}
+\newtheorem{para}[lem]{}
+\newtheorem{exer}[lem]{Exercise}
+\newtheorem{remarkdefinition}[lem]{Remark/Definition}
+\newtheorem{notation}[lem]{Notation}
+\newtheorem{step}{Step}
+\newtheorem{convention}[lem]{Convention}
+\newtheorem*{Convention}{Convention}
+\newtheorem{assumption}[lem]{Assumption}
+
+\newcommand{\fmn}{F^{m\times n}}
+\newcommand{\fnn}{F^{n\times n}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\Span}{\operatorname{Span}}	
+\newcommand{\rank}{\operatorname{rank}}	
+\newcommand{\OO}[1]{\mathcal{O}_{#1}}
+\begin{document}
+
+\noindent MATH 8510, Abstract Algebra I \\
+Fall 2016\\
+Exercises 6-2\\
+Due date Thu 29 Sep 4:00PM
+
+\
+
+\noindent
+See the text for hints.
+
+\
+
+%\noindent
+%Throughout this homework set, let $F$ be a field
+%
+%
+%\
+
+\begin{exer}[4.2.10]
+Prove that every non-abelian group of order 6 has a non-normal subgroup of order 2.
+Use this to classify all groups of order 6;
+specifically, provide a list $G_1,G_2$ of groups of order 6 such that (1) $G_1\not\cong G_2$, and (2) for all groups $G$ if $|G|=6$, then $G\cong G_1$ or $G\cong G_2$.
+Justify your answers.
+\begin{proof}
+Let $G$ be a group which is not abelian and $|G| = 6$.\\
+Since $2 | 6$ and $3 | 6$ and $2,3$ are primes, \\
+by Cauthy Theorem, there exists $H, M \leq G$ and $|H| = 2$ and $|H| = 3$.\\
+Assume all the subgroups of $G$ of order 2 are normal subgroups of $G$. \\
+Consider $H=\{e_G,h\} \leq G$, where $h \in G$ and $h \neq e_G$ and $h^2 = 1$. \\
+Then $|H| = 2$ and $H \unlhd G$ by assumption. \\
+As a result, $N_G(H) = G$.\\
+So for any $g \in G$, $gH = Hg$.\\
+Since $h \in H$, we have $gh = hg$ for any $g \in G$.\\
+So $h \in Z(G)$.\\
+Since $|G| = 2\times 3$ and $2,3$ are primes, we have $G$ is abelian or $Z(G)= \{e_G\}$ by the conclusion from Exercise 1 in homework 3.\\
+Given $G$ is not abelian, we have $Z(G) = \{e_G\}$, which is a contradiction since we already find $h \in Z(G)$ and $h \neq e_G$.\\
+Thus, there exists a non-normal subgroup of $G$ of order 2.\\
+$G$ is arbitrary, so every non-abelian group of order 6 has a non-normal subgroup of order 2.\\
+Next we show $G$ is isomorphic to $S_3$.\\
+Let $H \leq G$ of order 2 and be the non-normal subgroup of $G$.\\
+Then $G$ acts transitively on $G//H$. \\
+Let $\pi_H: G \to S_{G//H}$ be the associated permutation representation.\\
+Then
+\begin{align*}
+	\ker(\pi_H) &= \bigcap_{x\in G}xHx^{-1} \subset  H.
+\end{align*}
+So $|\ker(\pi_H)| = 1$ or $2$.\\
+If $|\ker(\pi_H)| =2$, then $\ker(\pi_H) = H$, which is a contradiction since $\ker(\pi_H) \unlhd G$ and $H$ is not a normal subgroup of $G$ by assumption.
+So $|\ker(\pi_H)| = 1$.\\
+Thus, $\pi_H$ is 1-1.\\
+Since $\left|G//H\right| = \frac{|G|}{|H|} = \frac{6}{2} = 3$,\\
+\[ S_{G\\H} \cong S_3. \]
+Then $|S_{G\\H}| = |S_3| = 6$.\\
+Since $|G| = 6$, we have $\pi_H$ is onto since it is also 1-1.\\
+Thus, $\pi_H$ is bijective.\\
+As a result, $\pi_H$ is an isomorphism.\\
+So 
+\[G \cong S_{G\\H}.\]
+Therefore, for each non-abelian group $G$ of order 6, we have
+\[G \cong S_3. \]
+Next we claim that every abelian group of order 6 is cyclic.\\
+Let $G$ be a ableian group of order 6.\\
+By Cauthy Theorem, there exists $x,y \in G$ and $|x| = 2, |y|= 3$.\\
+Then $x \neq y$.\\
+Besides, $x^{-1} = x$ and $y^{-1} = y^2 \in G$.\\
+Then $x \neq y^2$, otherwise, $x=y$.\\
+So we find $\{e_G,x,y,y^2\} \subset G$.\\
+We can verify that two distinct elelments $xy,xy^2 \in G$ but $xy,xy^2 \not\in \{e_G,x,y,y^2\}$.
+Since $|G|=6$, we have
+\[ G=\{e_G,x,y,y^2,xy,xy^2\}.\]
+We claim $G=\langle xy \rangle$.\\
+Since $G$ is abelian,
+\begin{align*}
+  (xy)^1 &= xy =e_G.\\
+  (xy)^2 &=x^2y^2 =y^2,\\
+  (xy)^3 &=x^3y^3 = x,\\
+  (xy)^4 &=x^4y^4 = y,\\
+  (xy)^5 &=x^5y^5 = xy^2,\\
+  (xy)^6 &= x^6y^6 = e_G.
+\end{align*}
+Thus, $G$ is cyclic.\\
+So every abelian group of order 6 is cyclic.\\
+We know if a group $G$ is cyclic of order 6, then 
+\[G \cong \bbz/6\bbz.\]
+So for each abelian group $G$ of order 6, we have 
+\[ G \cong \bbz/6\bbz.\]
+Since $S_3$ is not cyclic,
+\[S_3 \not\cong \bbz/6\bbz.\]
+As result, we have for any non-abelian group $G$ of order 6, 
+\[G \cong S_3, \] 
+and for any abelian group $G$ of order 6,
+\[G \cong \bbz/6\bbz,\]
+where $S_3 \not\cong \bbz/6\bbz$.
+
+
+
+\end{proof}
+\end{exer}
+
+\begin{exer}[4.3.6]
+Assume that $G$ is a non-abelian group of order 15. 
+Prove that $Z(G)=\{e\}$. 
+Use the fact that $\langle g\rangle\leq C_G(g)$ to show that there is at most one possible class equation for $G$;
+in other words, in the notation of Theorem~4.2.4 of the notes, find $r$ and $|Z(G)|$ and $[G:C_G(g_1)]$, \ldots, $[G:C_G(g_r)]$.
+Justify your answers.
+\end{exer}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
