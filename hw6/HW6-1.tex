@@ -67,8 +67,8 @@
 \noindent MATH 8510, Abstract Algebra I \\
 Fall 2016\\
 Exercises 6-1\\
-Due date Thu 29 Sep 4:00PM
-
+Name: Shuai Wei\\
+Collaborator: DaoZhouZhu, XiaoyuanLiu, Ben\\
 \
 
 %\noindent
@@ -107,7 +107,7 @@ Prove that $N\leq A_4$.
 	  \item $\left((1~ 2)(3~ 4)\right)\left((1~ 2)(3~ 4)\right) = (1) \in N$.\\
 			$\left((1~ 3)(2~ 4)\right)\left((1~ 3)(2~ 4)\right) = (1) \in N$.\\
 				$\left((1~ 4)(2~ 3)\right)\left((1~ 4)(2~ 3)\right) = (1) \in N$.\\
-		So the inverses of $(1~ 2)(3~ 4),(1~ 3)(2~ 4)$ and $(1~ 4)(2~ 3)$ are themselves, respectively, which are in $N$.
+		So the inverses of $(1~ 2)(3~ 4),(1~ 3)(2~ 4)$ and $(1~ 4)(2~ 3)$ are themselves, respectively, which are obviously in $N$.
 	\end{enumerate}
 	Thus, $N$ is a subgroup of $A_4$
 \end{proof}
@@ -116,10 +116,12 @@ Prove that $N\leq A_4$.
 Prove that $N\smallsetminus\{(1)\}=\{\tau\in A_4\mid|\tau|=2\}$.
 \begin{proof}
   Let $D = \{(a~b~c),a,b,c \in \{1,2,3,4\}, a\neq b\neq c\}$. \\
+  It is obvious that $(1) \not\in D$.\\
   Then $D \subsetneq A_4$ since $(a~b~c) = (a~c)(a~b)$.\\
-  We have $(a~b~c)(a~b~c) = (a~c~b)$ and $(a~b~c)(a~b~c)(a~b~c) = (1)$, so $|(a~b~c)| = 3$. \\
+  We have $(a~b~c)(a~b~c) = (a~c~b) \neq (1) $ and $(a~b~c)(a~b~c)(a~b~c) = (1)$, \\
+  so $|(a~b~c)| = 3$. \\
   Beside, we have $|D| = \frac{4!}{3} = 8$. \\
-  Since $|N| + D = 12 = |A_4|$ and $N \cap D = \emptyset $,\\
+  Since $|N| + |D| = 12 = |A_4|$ and $N \cap D = \emptyset $,\\
   $A_4 = N \cup D$.\\
   So we know all the elements with order 2 are in $A_4$. \\
   Moreover, all elements in $A_4$ has order 2 except element $(1)$.
@@ -132,8 +134,12 @@ Prove that $N\smallsetminus\{(1)\}=\{\tau\in A_4\mid|\tau|=2\}$.
 Prove that for all $\sigma\in A_4$, for all $\tau\in N\smallsetminus\{(1)\}$, the element $\sigma\tau\sigma^{-1}$ has order 2, so it is in $N$. 
 
 \begin{proof}
-  For all $\tau\in N\smallsetminus\{(1)\}$, we have $\tau \tau = (1)$ since the order of the elment of $N\smallsetminus\{(1)\}$ is 2.\\
-  For all $\sigma\in A_4$, $\tau\in N\smallsetminus\{(1)\}$,
+  Suppose $|\sigma\tau\sigma^{-1}| = 1$, then $\sigma\tau\sigma^{-1} = (1)$ for all $\sigma\in A_4$ and all $\tau\in N\smallsetminus\{(1)\}$. \\
+  So $\sigma\tau = \sigma$ for all $\sigma\in A_4$ and all $\tau\in N\smallsetminus\{(1)\}$.\\
+  Then $\tau = (1)$, which is a contradiction since $\tau \in N\smallsetminus\{(1)\}$.\\
+  So $|\sigma\tau\sigma^{-1}| > 1$.\\
+  For all $\tau\in N\smallsetminus\{(1)\}$, we have $\tau \tau = (1)$ since the order of any element of $N\smallsetminus\{(1)\}$ is 2.\\
+  For all $\sigma\in A_4$ and all $\tau\in N\smallsetminus\{(1)\}$,
   \begin{align*}
   	(\sigma\tau\sigma^{-1})(\sigma\tau\sigma^{-1}) &= \sigma\tau\tau\sigma^{-1} \\
   												   &= \sigma(1)\sigma^{-1} \\
@@ -141,14 +147,14 @@ Prove that for all $\sigma\in A_4$, for all $\tau\in N\smallsetminus\{(1)\}$, th
   \end{align*}
   	So the element $\sigma\tau\sigma^{-1}$ has order 2, and then $\sigma\tau\sigma^{-1} \in N$.\\
   	Thus, $N\unlhd A_4$.\\
-	Since $|A_4/N| = \frac{|A_4|}{N} = 3$ by Lagrange Theorem, $A_4/N$ is simple and cyclic.\\
+	Since $|A_4/N| = \frac{|A_4|}{|N|} = 3$ by Lagrange Theorem, $A_4/N$ is simple and cyclic.\\
 	Then $A_4/N$ is abelian.\\
 	As a result, we have a trivial chain $N \unlhd A_4$.\\
   	Since $|N| = 4$, by Jordan-H\"older theorem, there is a chain of subgroups 
   	\[ \{(1)\} = N_0 \unlhd N_1...\unlhd N_k = N.\] 
   	$N$ is abelian by part (i), so $N_0,N_1, ..., N_{k-1}$ are also abelian since they are subgroups of $N$.\\ 
   	Thus, $N_1/N_0,N_2/N_1..,N/N_{n-1}$ are abelian.\\
-	Combine the chain $\{(1)\} = N_0 \unlhd N_1...\unlhd N_k = N$ with the chain $A_4 \unlhd N$,\\
+	Combine the chain $\{(1)\} = N_0 \unlhd N_1...\unlhd N_k = N$ with the chain $N \unlhd A_4$,\\
 	we get a new chain
 	\[  N_0 \unlhd N_1...\unlhd  N \unlhd A_4,\]
 	where $N_1/N_0, N_2/N_1..,N/N_{k-1}, A_4/N$ are abelian.
@@ -174,8 +180,9 @@ Prove that $G$ acts transitively on $\{\OO{1}, \OO 2,\ldots,\OO r\}$. Deduce tha
   		  & = \{h(g \cdot a_i) \in A \mid h \in H\} \\
   \end{align*}
   since $H \unlhd G$.\\ 
-  Besides, $g \cdot a_i \in A$,so there exists $a_j \in A$ such that $g\cdot a_i = a_j$.\\
-  We have $j \in [r]$ since $\OO 1,\OO 2, \ldots, \OO r$ are disjoint orbits of $H$ on $A$.\\
+  Besides, $g \cdot a_i \in A$,so there exists $a \in A$ such that $g\cdot a_i = a$.\\
+  There exists some $j \in [r]$ such that $a \in \OO j$ since $\OO 1,\OO 2, \ldots, \OO r$ are disjoint orbits of $H$ on $A$.\\
+  Set $a_j = a$ for such $j \in [r]$ such that $a \in \OO j$ .\\
   Let $H\cdot a_j = \OO j = \{h\cdot a_j\in A \mid h\in H\}$ and then 
   \begin{align*}
   	 g\OO i  & = \{h(g \cdot a_i) \in A \mid h \in H\} \\
@@ -183,9 +190,8 @@ Prove that $G$ acts transitively on $\{\OO{1}, \OO 2,\ldots,\OO r\}$. Deduce tha
   			 & = \OO j 
   \end{align*}
   Next we show $G$ acts transitively on $\{\OO 1,\OO 2,\ldots,\OO r\}$.\\
-  We already know for each $i\in [r] = \{1,\ldots,r\}$, there exists $a_i \in A$ such that $\OO{i} = H\cdot a_i = \{h\cdot a_i\in A \mid h\in H\}$.\\
-  Since $G$ acts transitively on $A$, for any $j \in [r]$, there exists $g_j \in G$ such that $a_j = g_ja_1$. \\
-  So for any $\OO j \in \{\OO 1,\OO 2,\ldots,\OO r\}$, there exists $g_j \in G$ such that
+  Since $G$ acts transitively on $A$, for any $j \in [r]$, there exists $g_j \in G$ such that $a_j = g_ja_1$, where $a_j, j\in [r]$ and $a_1$ is already defined by us. \\
+  So for any $\OO j \in \{\OO 1,\OO 2,\ldots,\OO r\}$, 
   \begin{align*}
   		\OO j &= \{h\cdot a_j \in A \mid h\in H\} \\
 			  &= \{h \cdot g_ja_1 \in A \mid h \in H \}\\
@@ -254,7 +260,7 @@ Then
   		  &= [G:G_a] \\
   		&= \frac{|G|}{|G_a|}
 \end{align*}
-according to we showed in class.\\
+according to what we have shown in class.\\
 Then 
 \[ [G:HG_a] = \frac{|G|||G_a}{|G_a||G|}r = r.\]
 Namely, 

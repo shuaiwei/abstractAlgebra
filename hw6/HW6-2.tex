@@ -96,14 +96,13 @@ Consider $H=\{e_G,h\} \leq G$, where $h \in G$ and $h \neq e_G$ and $h^2 = 1$. \
 Then $|H| = 2$ and $H \unlhd G$ by assumption. \\
 As a result, $N_G(H) = G$.\\
 So for any $g \in G$, $gH = Hg$.\\
-Since $h \in H$, we have $gh = hg$ for any $g \in G$.\\
+Since $H = \{e_G,h\}$, we have $gh = hg$ for any $g \in G$.\\
 So $h \in Z(G)$.\\
-Since $|G| = 2\times 3$ and $2,3$ are primes, we have $G$ is abelian or $Z(G)= \{e_G\}$ by the conclusion from Exercise 1 in homework 3.\\
+Since $|G| = 2\times 3$ and $2,3$ are primes, we have $G$ is abelian or $Z(G)= \{e_G\}$ by the conclusion from Exercise 1 in homework 5.\\
 Given $G$ is not abelian, we have $Z(G) = \{e_G\}$, which is a contradiction since we already find $h \in Z(G)$ and $h \neq e_G$.\\
 Thus, there exists a non-normal subgroup of $G$ of order 2.\\
-$G$ is arbitrary, so every non-abelian group of order 6 has a non-normal subgroup of order 2.\\
 Next we show $G$ is isomorphic to $S_3$.\\
-Let $H \leq G$ of order 2 and be the non-normal subgroup of $G$.\\
+Let $H \leq G$ of order 2 be the non-normal subgroup of $G$.\\
 Then $G$ acts transitively on $G//H$. \\
 Let $\pi_H: G \to S_{G//H}$ be the associated permutation representation.\\
 Then
@@ -111,17 +110,17 @@ Then
 	\ker(\pi_H) &= \bigcap_{x\in G}xHx^{-1} \subset  H.
 \end{align*}
 So $|\ker(\pi_H)| = 1$ or $2$.\\
-If $|\ker(\pi_H)| =2$, then $\ker(\pi_H) = H$, which is a contradiction since $\ker(\pi_H) \unlhd G$ and $H$ is not a normal subgroup of $G$ by assumption.
+If $|\ker(\pi_H)| =2$, then $\ker(\pi_H) = H$, which is a contradiction since $\ker(\pi_H) \unlhd G$ and $H$ is not a normal subgroup of $G$ by assumption.\\
 So $|\ker(\pi_H)| = 1$.\\
 Thus, $\pi_H$ is 1-1.\\
 Since $\left|G//H\right| = \frac{|G|}{|H|} = \frac{6}{2} = 3$,\\
-\[ S_{G\\H} \cong S_3. \]
-Then $|S_{G\\H}| = |S_3| = 6$.\\
-Since $|G| = 6$, we have $\pi_H$ is onto since it is also 1-1.\\
+\[ S_{G//H} \cong S_3. \]
+Then $|S_{G//H}| = |S_3| = 6$.\\
+Since $|G| = 6$, we have $\pi_H$ is onto since it is 1-1.\\
 Thus, $\pi_H$ is bijective.\\
 As a result, $\pi_H$ is an isomorphism.\\
 So 
-\[G \cong S_{G\\H}.\]
+\[G \cong S_{G//H}.\]
 Therefore, for each non-abelian group $G$ of order 6, we have
 \[G \cong S_3. \]
 Next we claim that every abelian group of order 6 is cyclic.\\
@@ -131,7 +130,7 @@ Then $x \neq y$.\\
 Besides, $x^{-1} = x$ and $y^{-1} = y^2 \in G$.\\
 Then $x \neq y^2$, otherwise, $x=y$.\\
 So we find $\{e_G,x,y,y^2\} \subset G$.\\
-We can verify that two distinct elelments $xy,xy^2 \in G$ but $xy,xy^2 \not\in \{e_G,x,y,y^2\}$.
+Similarly, we can verify that two distinct elelments $xy,xy^2 \in G$ but $xy,xy^2 \not\in \{e_G,x,y,y^2\}$.\\
 Since $|G|=6$, we have
 \[ G=\{e_G,x,y,y^2,xy,xy^2\}.\]
 We claim $G=\langle xy \rangle$.\\
@@ -157,9 +156,6 @@ As result, we have for any non-abelian group $G$ of order 6,
 and for any abelian group $G$ of order 6,
 \[G \cong \bbz/6\bbz,\]
 where $S_3 \not\cong \bbz/6\bbz$.
-
-
-
 \end{proof}
 \end{exer}
 
@@ -169,6 +165,41 @@ Prove that $Z(G)=\{e\}$.
 Use the fact that $\langle g\rangle\leq C_G(g)$ to show that there is at most one possible class equation for $G$;
 in other words, in the notation of Theorem~4.2.4 of the notes, find $r$ and $|Z(G)|$ and $[G:C_G(g_1)]$, \ldots, $[G:C_G(g_r)]$.
 Justify your answers.
+
+\begin{proof}
+	Since $|G| = 15 = 3 \times 5$ and $3,5$ are primes, \\
+	$G$ is abelian or $Z(G)= \{e_G\}$ by the conclusion from Exercise 1 in homework 5.\\
+	Given $G$ is not abelian, we have $Z(G)=\{e_G\}$.\\
+	Let $[r] = \{1,2,...,r\}$.\\
+	By class equation, we have 
+	\[\sum_{i=1}^r [G:C_G(g_i)] = |G|-|Z(G)| = 15-1 = 14,\]
+	where $g_i \in G$ and $g_i \not\in Z(G)$ for $i\in [r]$.\\
+	Then $C_G(g_i) \neq G$ for $i \in [r]$ and $g_i \neq e_G$ since $Z(G) = \{e_G\}$.\\
+	So $[G:C_G(g_i)] \neq 1$.\\
+	Then $[G:C_G(g_i)] \in \{3,5,15\}$ since $[G:C_G(g_i)] \mid G$.\\
+	We know the fact that for $i \in [r]$, 
+  	\[ \langle g_i \rangle \leq C_G(g_i).\]
+  	Since $g_i \neq e_G$ for $i \in [r]$,\\
+    \[C_G(g_i) \neq \{e_G\}.\]
+    So for $i \in [r]$,
+    \[[G:C_G(g_i)] < 15.\]
+    Then for $i \in [r]$,
+    \[[G:C_G(g_i)] \in \{3,5\}.\]
+    So we need to find $r$ and $[G:C_G(g_i)]$, where $\sum_{i=1}^r [G:C_G(g_i)] =14$ and $[G:C_G(g_i)] \in \{3,5\}$ for $i \in [r]$.\\
+    Let $m$ and $n$ be the number of order 3 and order 5 conjugacy classes in $G$, respectively.\\
+    Then $3m+5n =14$, where $m,n \in \bbn \cup \{0\}$.\\
+    So
+    \[3m = 14-5n \geq 0.\]
+    So the possible $n$ can only be $0$ or $1$ or $2$.\\
+    To make $3|(14-5n)$, just $n=1$ is satisfied and then $m = 3$.\\
+	So we have $3+3+3+5 = 14$ and then $r= 4$.\\ 
+    Since by class equation, we can just find one $r=4$ and corresponding $[G:C_G(g_i)]$ for $i = 1,2,3,4$, there is at most one possible class equation for $G$.
+
+
+
+
+\end{proof}
+
 \end{exer}
 
 \end{document}
